@@ -1,0 +1,43 @@
+
+super + Return
+      termite
+
+super + space
+      dmenu_run -nb "#32302f" -nf "#ebdbb2" -sb "#689d6a" -sf "#ebdbb2" -fn "DejaVu Sans Mono:size=20"
+
+super + x
+      bspc quit
+
+
+super + r
+      pkill --signal USR1 sxhkd
+
+super + c
+      bspc node focused -c
+
+super + {1-9,0}
+      bspc desktop ^{1-9,10} -f
+
+super + shift + {1-9,0}
+      bspc node focused -d ^{1-9,10}
+
+super + {t,shift+t,f,shift+f}
+      bspc node focused -t {tiled,pseudo_tiled,floating,fullscreen}
+
+super + {n,w,s,e}
+      bspc node {north,west,south,east} -f
+
+{XF86MonBrightnessUp,XF86MonBrightnessDown}
+      xbacklight {+,-} 5
+
+{XF86AudioRaiseVolume,XF86AudioLowerVolume}
+      pamixer --{increase,decrease} 5
+
+XF86AudioMute
+      pamixer --toggle-mute
+
+super + Tab
+      setxkbmap -layout us
+
+super + shift + Tab
+      setxkbmap -layout us -variant workman

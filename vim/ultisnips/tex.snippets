@@ -1,0 +1,236 @@
+# preamble
+snippet dc "documentclass"
+\documentclass{$1}$0
+endsnippet
+
+snippet DC "documentclass with options"
+\documentclass[$1]{$2}$0
+endsnippet
+
+snippet use "usepackage"
+\usepackage{$1}$0
+endsnippet
+
+snippet Use "usepackage with options"
+\usepackage[$1]{$2}$0
+endsnippet
+
+snippet doc "begin document"
+\begin{document}
+
+$0
+
+\end{document}
+endsnippet
+
+# sectioning
+
+snippet sec "unnumbered section"
+\section*{${1:${VISUAL}}}$0
+endsnippet
+
+snippet Sec "numbered section"
+\section{${1:${VISUAL}}}$0
+endsnippet
+
+snippet ssec "unnumbered subsection"
+\subsection*{${1:${VISUAL}}}$0
+endsnippet
+
+snippet Ssec "numbered subsection"
+\subsection{${1:${VISUAL}}}$0
+endsnippet
+
+snippet par "paragraph"
+\paragraph{${1:${VISUAL}}}$0
+endsnippet
+
+
+
+# environments
+
+snippet bg "begin" w
+\begin{$1}
+	$0
+\end{$1}
+endsnippet
+
+snippet Bg "begin with options" w
+\begin{$1}[$2]
+	$0
+\end{$1}
+endsnippet
+
+snippet enum "enumerate" w
+\begin{enumerate}
+\item$0
+\end{enumerate}
+endsnippet
+
+snippet desc "description" w
+\begin{description}
+\item[$1]$0
+\end{description}
+endsnippet
+
+snippet itemize "itemize" w
+\begin{itemize}
+\item$0
+\end{itemize}
+endsnippet
+
+snippet ctr "center" w
+\begin{center}
+	$0
+\end{center}
+endsnippet
+
+# math environments
+
+snippet al "unnumbered align" w
+\begin{align*}
+	$0
+\end{align*}
+endsnippet
+
+snippet Al "numbered align" w
+\begin{align}
+	$0
+\end{align}
+endsnippet
+
+snippet m "inline math" w
+\(${1:${VISUAL}}\)$0
+endsnippet
+
+snippet M "display math" w
+\[
+	$0
+\]
+endsnippet
+
+# math commands
+
+snippet "sq(rt)?" "square root" wr
+\sqrt{${1:${VISUAL}}}$0
+endsnippet
+
+snippet "Sq(rt)?" "nth root" wr
+\sqrt[$1]{${2:${VISUAL}}}$0
+endsnippet
+
+snippet "fr(ac)?" "fraction" wr
+\frac{$1}{$2}$0
+endsnippet
+
+snippet "lim(it)?" "limit" wr
+\lim_{$1}$0
+endsnippet
+
+snippet sum "sum" w
+\sum_{$1}$0
+endsnippet
+
+snippet Sum "full sum" w
+\sum_{$1}^{$2}$0
+endsnippet
+
+snippet int "integral" w
+\int_{$1}^{$2} $0
+endsnippet
+
+snippet mrm "mathrm" w
+\mathrm{${1:${VISUAL}}}$0
+endsnippet
+
+snippet bm "bold math" w
+\bm{${1:${VISUAL}}}$0
+endsnippet
+
+snippet mbf "mathbf" w
+\mathbf{${1:${VISUAL}}}$0
+endsnippet
+
+snippet lr "left right" w
+\left${1:.}${3:${VISUAL}}\right${2:.}$0
+endsnippet
+
+snippet lrp "left right parentheses" w
+\left(${1:${VISUAL}}\right)$0
+endsnippet
+
+snippet lrb "left right brackets" w
+\left[${1:${VISUAL}}\right]$0
+endsnippet
+
+snippet lrc "left right curly braces" w
+\left\{${1:${VISUAL}}\right\}$0
+endsnippet
+
+snippet "fl(oor)?" "floor" wr
+\lfloor ${1:${VISUAL}} \rfloor $0
+endsnippet
+
+snippet "lrfl(oor)?" "left right floor" wr
+\left\lfloor ${1:${VISUAL}} \right\rfloor $0
+endsnippet
+
+snippet "ce(il)?" "ceiling" wr
+\lceil ${1:${VISUAL}} \rceil $0
+endsnippet
+
+snippet "lrce(il)?" "left right ceiling" wr
+\left\lceil ${1:${VISUAL}} \right\rfloor $0
+endsnippet
+
+snippet "ang(le)?" "angle" wr
+\langle ${1:${VISUAL}} \rangle $0
+endsnippet
+
+snippet "lrang(le)?" "left right angle" wr
+\left\langle ${1:${VISUAL}} \right\rangle $0
+endsnippet
+
+snippet "mat(rix)?" "matrix" wr
+\begin{matrix}
+	$1
+\end{matrix}
+endsnippet
+
+snippet "pmat(rix)?" "parentheses matrix" wr
+\begin{pmatrix}
+	$1
+\end{pmatrix}
+endsnippet
+
+snippet "bmat(rix)?" "brackets matrix" wr
+\begin{bmatrix}
+	$1
+\end{bmatrix}
+endsnippet
+
+
+
+
+# inline formatting
+
+snippet "em(ph)?" "emphasis" wr
+\emph{${1:${VISUAL}}}$0
+endsnippet
+
+snippet bf "textbf" w
+\textbf{${1:${VISUAL}}}$0
+endsnippet
+
+snippet it "textit" w
+\textit{${1:${VISUAL}}}$0
+endsnippet
+
+snippet ul "underline" w
+\underline{${1:${VISUAL}}}$0
+endsnippet
+
+snippet gr "group" w
+{${1:${VISUAL}}}$0
+endsnippet
+
