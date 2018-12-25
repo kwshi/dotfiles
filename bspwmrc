@@ -9,10 +9,9 @@ echo $E:PATH > /home/kshi/path
 pwd > /home/kshi/pwd
 
 termite &
-/home/kshi/go/bin/ksbar -conf /home/kshi/.config/ksbar/ksbar.toml &
-/home/kshi/go/bin/ksbar -conf /home/kshi/.config/ksbar/ksbar-bottom.toml &
-sleep .5
-stalonetray &
+
+polybar -c /home/kshi/.config/polybar/config top &
+polybar -c /home/kshi/.config/polybar/config bottom &
 
 echo stuff > /home/kshi/check-2
 
