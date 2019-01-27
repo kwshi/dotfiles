@@ -1,4 +1,12 @@
+use epm
+
+peach [pkg]{ epm:install &silent-if-installed=$true $pkg } [
+  github.com/zzamboni/elvish-modules
+  github.com/zzamboni/elvish-completions
+]
+
 use readline-binding
+
 use github.com/zzamboni/elvish-modules/alias
 
 use github.com/zzamboni/elvish-completions/cd
