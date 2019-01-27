@@ -3,6 +3,7 @@ use epm
 peach [pkg]{ epm:install &silent-if-installed=$true $pkg } [
   github.com/zzamboni/elvish-modules
   github.com/zzamboni/elvish-completions
+  github.com/muesli/elvish-libs
 ]
 
 use readline-binding
