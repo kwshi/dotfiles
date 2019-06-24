@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: display-math
+# key: M
+# --
+\\begin{align*}
+  $0
+\\end{align*}
