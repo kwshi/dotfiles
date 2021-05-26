@@ -1,0 +1,20 @@
+# vi: ft=bash
+# shellcheck shell=bash disable=SC1090
+
+function prepend_path {
+  case ":$PATH:" in
+    *:"$1":*) ;;
+    *) export PATH="$1:$PATH";;
+  esac
+}
+
+. ~/'dotfiles/cli/bash/bashrc.d/ps1.sh'
+. ~/'dotfiles/cli/bash/bashrc.d/alias.sh'
+. ~/'.cargo/env'
+. <(opam env)
+
+prepend_path ~/'.venv/bin'
+prepend_path ~/'.pnpm-global/node_modules/.bin'
+prepend_path ~/'.luarocks/bin'
+
+export GPG_TTY="$(tty)"
