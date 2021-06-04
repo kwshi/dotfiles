@@ -58,3 +58,6 @@ super + shift + {q,r,1,2,3,4,5}
       "$(bspc query -D --names -d "$target")" \
     && bspc desktop "$target" -n "$name" \
     && bspc desktop -s "$target"
+
+{XF86AudioPlay,XF86AudioNext,XF86AudioPrev}
+  playerctl -p spotifyd {play-pause,next,previous}
