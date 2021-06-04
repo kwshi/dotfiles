@@ -22,6 +22,8 @@ Plug 'JuliaEditorSupport/julia-vim'
 
 Plug 'vmchale/just-vim'
 
+Plug 'lervag/vimtex'
+
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 Plug 'SirVer/ultisnips'
@@ -62,12 +64,21 @@ let g:prettier#autoformat_require_pragma = 0
 let g:smoothie_speed_linear_factor = 30
 let g:smoothie_speed_exponentiation_factor = 0.75
 
-let g:latex_to_unicode_auto = 1
-let g:latex_to_unicode_file_types  = 'julia\|python\|haskell\|javascript\|typescript'
+"let g:latex_to_unicode_auto = 1
+"let g:latex_to_unicode_file_types  = 'julia\|python\|haskell\|javascript\|typescript\|rust'
+let g:latex_to_unicode_file_types = '.*'
+
 "let g:latex_to_unicode_keymap = 1
 
 let g:Hexokinase_optInPatterns = 'full_hex,triple_hex,rgb,rgba,hsl,hsla,colour_names'
 let g:Hexokinase_refreshEvents = ['TextChanged', 'TextChangedI', 'InsertLeave', 'BufRead']
 let g:Hexokinase_highlighters = ['backgroundfull']
+
+let g:vimtex_compiler_method = 'tectonic'
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_format_enabled = 1
+
+let g:julia_indent_align_brackets = 0
+let g:julia_indent_align_funcargs = 0
 
 lua require 'init'
