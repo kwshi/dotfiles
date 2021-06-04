@@ -18,3 +18,9 @@ prepend_path ~/'.pnpm-global/node_modules/.bin'
 prepend_path ~/'.luarocks/bin'
 
 export GPG_TTY="$(tty)"
+export EDITOR='nvim'
+
+function spawn {
+  nohup "$@" > '/dev/null' 2> '/dev/null'
+}
+
