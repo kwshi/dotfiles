@@ -8,10 +8,12 @@ function prepend_path {
   esac
 }
 
-. ~/'dotfiles/cli/bash/bashrc.d/ps1.sh'
+#. ~/'dotfiles/cli/bash/bashrc.d/ps1.sh'
 . ~/'dotfiles/cli/bash/bashrc.d/alias.sh'
+. ~/'dotfiles/cli/bash/bashrc.d/dbus.sh'
 . ~/'.cargo/env'
 . <(opam env)
+. <(starship init --print-full-init 'bash')
 
 prepend_path ~/'.venv/bin'
 prepend_path ~/'.pnpm-global/node_modules/.bin'
@@ -21,6 +23,5 @@ export GPG_TTY="$(tty)"
 export EDITOR='nvim'
 
 function spawn {
-  nohup "$@" > '/dev/null' 2> '/dev/null'
+  nohup "$@" > '/dev/null' 2> '/dev/null' &
 }
-
