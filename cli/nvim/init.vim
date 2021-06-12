@@ -1,4 +1,4 @@
-call plug#begin('~/.local/share/nvim/site')
+call plug#begin('~/.local/share/nvim/site/plug')
 
 Plug 'gruvbox-community/gruvbox'
 Plug 'junegunn/fzf'
@@ -11,7 +11,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'psliwka/vim-smoothie'
 
 Plug 'prettier/vim-prettier'
-Plug 'evanleck/vim-svelte'
+Plug 'evanleck/vim-svelte', { 'branch': 'main' }
 
 Plug 'kana/vim-textobj-user'
 Plug 'glts/vim-textobj-comment'
