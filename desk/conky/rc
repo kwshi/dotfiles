@@ -1,0 +1,64 @@
+-- vi: ft=lua
+
+conky.config = {
+  gap_x = 16,
+  gap_y = 40,
+  alignment = "top_left",
+  background = false,
+  update_interval = 1,
+  font = "RobotoMono:size=10",
+  use_xft = true,
+  out_to_x = true,
+  own_window = true,
+  own_window_type = 'desktop',
+  own_window_transparent = true,
+  double_buffer = true,
+  draw_shades = false,
+  minimum_width = 320,
+}
+
+--conky.text = [[
+--CPU: Name     PID         CPU%  MEM%
+--${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}
+--${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2}
+--${top name 3} ${top pid 3} ${top cpu 3} ${top mem 3}
+--${top name 4} ${top pid 4} ${top cpu 4} ${top mem 4}
+--]]
+
+lines = {}
+
+table.insert(lines, '${font Roboto Mono:style=bold:size=10}CPU - $cpu%$font')
+table.insert(lines, '${cpugraph}')
+
+for cpu = 1,12 do
+  line = string.format('${cpu cpu%d}%% ${cpubar cpu%d 12}', cpu, cpu)
+  table.insert(lines, line)
+end
+
+conky.text = table.concat(lines, '\n')
+
+--conky.text = [[
+--${color grey}Info:$color $sysname $nodename $kernel $machine
+--$hr
+--${color grey}Uptime:$color $uptime
+--${color grey}Frequency (in GHz):$color $freq_g
+--${color grey}RAM Usage:$color $mem/$memmax - $memperc% ${membar 4}
+--${color grey}Swap Usage:$color $swap/$swapmax - $swapperc% ${swapbar 4}
+--${color grey}CPU Usage:$color $cpu% ${cpubar 8}
+--${color grey}Processes:$color $processes  ${color grey}Running:$color $running_processes
+--$hr
+--${color grey}File systems:
+-- / $color${fs_used /}/${fs_size /} ${fs_bar 6 /}
+--${color grey}Networking:
+--Up:$color ${upspeed} ${color grey} - Down:$color ${downspeed}
+--
+--$hr
+--
+
+--$hr
+--Name                 PID   CPU%   MEM%
+--${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}
+--${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2}
+--${top name 3} ${top pid 3} ${top cpu 3} ${top mem 3}
+--${top name 4} ${top pid 4} ${top cpu 4} ${top mem 4}
+--]]
