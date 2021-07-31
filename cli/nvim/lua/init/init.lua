@@ -59,7 +59,8 @@ lsp.elmls.setup {
 
 lsp.ocamllsp.setup(default_args)
 lsp.svelte.setup(default_args)
-lsp.pyls.setup(default_args)
+lsp.pylsp.setup(default_args)
+--lsp.pyright.setup(default_args)
 lsp.gopls.setup(default_args)
 lsp.rust_analyzer.setup {
   on_attach = make_on_attach {},

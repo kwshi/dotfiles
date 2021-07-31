@@ -29,13 +29,18 @@ Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'SirVer/ultisnips'
 "Plug 'honza/vim-snippets'
 
+Plug 'ntpeters/vim-better-whitespace'
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 call plug#end()
 
 set number termguicolors expandtab autochdir
-set shiftwidth=2 
+set shiftwidth=2
 set tabstop=2
-set signcolumn=number 
+set signcolumn=number
 set wildmode=list:longest
+set backup
 "set completeopt=menu,noinsert
 
 "set rtp+=/data/hacks/nvim-colorizer.lua
@@ -77,8 +82,19 @@ let g:Hexokinase_highlighters = ['backgroundfull']
 let g:vimtex_compiler_method = 'tectonic'
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_format_enabled = 1
+let g:vimtex_quickfix_open_on_warning = 0
 
 let g:julia_indent_align_brackets = 0
 let g:julia_indent_align_funcargs = 0
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+let g:better_whitespace_enabled = 1
+let g:strip_whitespace_on_save = 1
+let g:strip_whitespace_confirm = 0
+let g:strip_only_modified_lines = 0
+
 
 lua require 'init'
