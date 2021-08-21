@@ -6,7 +6,7 @@ conky.config = {
   alignment = "top_left",
   background = false,
   update_interval = 1,
-  font = "RobotoMono:size=10",
+  font = "RobotoMono Nerd Font:size=10",
   use_xft = true,
   out_to_x = true,
   own_window = true,
@@ -27,7 +27,7 @@ conky.config = {
 
 lines = {}
 
-table.insert(lines, '${font Roboto Mono:style=bold:size=10}CPU - $cpu%$font')
+table.insert(lines, '${font RobotoMono Nerd Font:style=bold:size=10}CPU - $cpu%$font')
 table.insert(lines, '${cpugraph}')
 
 for cpu = 1,12 do

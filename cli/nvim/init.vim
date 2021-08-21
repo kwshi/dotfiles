@@ -40,7 +40,8 @@ set shiftwidth=2
 set tabstop=2
 set signcolumn=number
 set wildmode=list:longest
-set backup
+set backupcopy=yes
+"set backup
 "set completeopt=menu,noinsert
 
 "set rtp+=/data/hacks/nvim-colorizer.lua
@@ -79,7 +80,8 @@ let g:Hexokinase_optInPatterns = 'full_hex,triple_hex,rgb,rgba,hsl,hsla,colour_n
 let g:Hexokinase_refreshEvents = ['TextChanged', 'TextChangedI', 'InsertLeave', 'BufRead']
 let g:Hexokinase_highlighters = ['backgroundfull']
 
-let g:vimtex_compiler_method = 'tectonic'
+let g:vimtex_compiler_method = 'latexmk'
+let g:vimtex_compiler_latexmk_engines = {'_': '-lualatex'}
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_format_enabled = 1
 let g:vimtex_quickfix_open_on_warning = 0

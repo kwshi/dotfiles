@@ -1,6 +1,6 @@
 [section/base-top]
-font-0 = "Roboto Mono:size=10;2"
-font-1 = "Roboto Mono:size=10:weight=bold;2"
+font-0 = "RobotoMono Nerd Font:size=10;2"
+font-1 = "RobotoMono Nerd Font:size=10:weight=bold;2"
 font-2 = "Font Awesome 5 Free:size=9;2"
 font-3 = "Font Awesome 5 Free Solid:size=9;2"
 font-4 = "DejaVu Sans Mono:size=10"
@@ -12,13 +12,13 @@ height = 24
 
 separator = " "
 modules-left = bspwm title
-modules-right = date
+modules-right = #spotify
 
 wm-restack = bspwm
 
 [section/base-bottom]
-font-0 = "Roboto Mono:size=10;2"
-font-1 = "Roboto Mono:size=10:weight=bold;2"
+font-0 = "RobotoMono Nerd Font:size=10;2"
+font-1 = "RobotoMono Nerd Font:size=10:weight=bold;2"
 font-2 = "Font Awesome 5 Free:size=9;2"
 font-3 = "Font Awesome 5 Free Solid:size=9;2"
 font-4 = "DejaVu Sans Mono:size=10"
@@ -30,18 +30,20 @@ background = #00000000
 foreground = #ebdbb2
 height = 24
 
-modules-left = eth wifi temperature cpu
-modules-center = audio
+modules-left = date audio eth wifi temperature cpu
+modules-center =
 
 wm-restack = bspwm
 
 [bar/main-top]
 inherit = section/base-top
 monitor = HDMI-A-0
+#DisplayPort-2
 
 [bar/main-bottom]
 inherit = section/base-bottom
 monitor = HDMI-A-0
+#DisplayPort-2
 
 tray-position = right
 
@@ -89,7 +91,7 @@ format = "<label> <ramp-coreload>"
 format-padding = 1
 label = "CPU%percentage:3%%"
 
-ramp-coreload-spacing = 
+ramp-coreload-spacing =
 ramp-coreload-0 = ▁
 ramp-coreload-1 = ▂
 ramp-coreload-2 = ▃
@@ -116,8 +118,8 @@ format-muted-padding = 1
 format-volume = "<ramp-volume> [<bar-volume>] <label-volume>"
 format-muted = " [<bar-volume>] <label-muted>"
 
-label-muted = "%percentage:3%%" 
-label-volume = "%percentage:3%%" 
+label-muted = "%percentage:3%%"
+label-volume = "%percentage:3%%"
 
 ramp-volume-0 = ""
 ramp-volume-1 = ""
@@ -166,4 +168,7 @@ label-connected = "[%local_ip%] - %upspeed:8% - %downspeed:8%"
 
 ramp-signal-0 = ""
 
-
+[module/spotify]
+type = custom/script
+exec = /home/kshi/dotfiles/script/spotify.sh
+interval = 1

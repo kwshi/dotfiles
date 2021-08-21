@@ -4,11 +4,11 @@ super + Return
 super + space
   rofi -show run
 
-super + ctrl + {_,alt} + {1,2,3,4,5}
-  bspc node -d {main,tab}{1,2,3,4,5} --follow
+super + ctrl + {1,2,3,4,5}
+  bspc node -d {1,2,3,4,5}
 
-super + {_,alt} + {1,2,3,4,5}
-  bspc desktop -f {main,tab}{1,2,3,4,5}
+super + {1,2,3,4,5}
+  bspc desktop -f {1,2,3,4,5}
 
 super + {q,r}
   bspc desktop -f {prev,next}.local
@@ -28,8 +28,19 @@ super + {_,alt} + {d,a,s,h,u,n,e,o,Up,Left,Down,Right}
 super + {_,shift} + Tab
   bspc node -f {next,prev}.leaf.local
 
-super + backslash
+super + Escape
   pkill --signal SIGUSR1 sxhkd
+
+super + backslash
+  tmp="$(mktemp '/tmp/nvim-tmp-XXXXXXXX')" \
+    && alacritty --class 'float' --command \
+      bash -i -c "nvim +startinsert '$tmp'" \
+    && xclip -i -r -selection clipboard "$tmp" \
+    && dunstify -a 'nvim-tmp' "copied: $(cat "$tmp")" \
+    && rm "$tmp"
+
+super + {_,shift} + equal
+  rofi -show '{calc,emoji}'
 
 super + c
   bspc node -c
@@ -60,4 +71,11 @@ super + shift + {q,r,1,2,3,4,5}
     && bspc desktop -s "$target"
 
 {XF86AudioPlay,XF86AudioNext,XF86AudioPrev}
-  playerctl -p spotifyd {play-pause,next,previous}
+  spotify-tui pb -{t,n,p}
+  #playerctl -p spotifyd {play-pause,next,previous}
+
+super + b; {a,s,h,t}
+  bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+super + bracketleft
+  maim -su | xclip -t image/png -selection clipboard

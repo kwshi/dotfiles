@@ -6,21 +6,32 @@ bspc config focused_border_color '#b8bb26'
 bspc config active_border_color '#79740e'
 bspc config normal_border_color '#1d2021'
 
+. <(dbus-launch --sh-syntax)
+
 hsetroot -add '#32302f' -add '#689d6a' -gradient 0
+
+autorandr -c
+
 sct 4000
 
-sxhkd -m -1 &
+sxhkd -m 1 &
 
 picom --experimental-backends &
 
 alacritty &
 
+conky -d
+
+spotifyd
+
+# TODO conky when ready
 
 #bspc monitor DisplayPort-1 -d main{1..5}
-bspc monitor HDMI-A-0 -d main{1..5}
+bspc monitor primary -d {1..5}
 
 bspc rule -a Zathura state=tiled
 bspc rule -a Peek state=floating
+bspc rule -a Alacritty:float state=floating
 
 polybar -r main-top &
 polybar -r main-bottom &
@@ -30,3 +41,4 @@ polybar -r main-bottom &
 #  done
 #done
 
+bspc monitor primary -f
