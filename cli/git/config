@@ -3,8 +3,15 @@
   email = shi.kye@gmail.com
   signingKey = f1ee07d5!
 
+[github]
+  user = kwshi
+
+
 [pull]
   ff = only
+
+[push]
+  default = upstream
 
 [init]
   defaultBranch = main
@@ -29,7 +36,13 @@
   insteadOf = git@gitlab.com:
   insteadOf = gitlab.com:
 
-# https://github.com/rust-lang/cargo/issues/8172 
+[url "gitea.kshi.xyz:"]
+  insteadOf = https://gitea.kshi.xyz/
+  insteadOf = http://gitea.kshi.xyz/
+  insteadOf = git://gitea.kshi.xyz/
+  insteadOf = git@gitea.kshi.xyz:
+
+# https://github.com/rust-lang/cargo/issues/8172
 [url "https://github.com/rust-lang/crates.io-index"]
   insteadOf = https://github.com/rust-lang/crates.io-index
 

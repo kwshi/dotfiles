@@ -13,7 +13,7 @@ Host gl
   User git
   IdentityFile /data/ssh/keys/gitlab
 
-Host jerie
+Host mia
   Hostname cloud.jerie.wang
   User hyperschedule-data
   IdentityFile /data/ssh/keys/jerie
@@ -22,3 +22,16 @@ Host teragpu
   Hostname teragpu.eng.hmc.edu
   User kshi
   IdentityFile /data/ssh/keys/teragpu
+
+Host gitlab.alpinelinux.org
+  User git
+  IdentityFile /data/ssh/keys/gitlab-alpine
+
+Host remarkable
+  Hostname 10.11.99.1
+  User root
+  IdentityFile /data/ssh/keys/remarkable
+
+Host gitea.kshi.xyz
+  User git
+  IdentityFile /data/ssh/keys/gitea.kshi.xyz

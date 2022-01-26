@@ -11,6 +11,8 @@ cfgs.digestif = {
   },
 }
 
+local lsp_status = require 'lsp-status'
+lsp_status.register_progress()
 
 local lsp = require 'lspconfig'
 
@@ -25,16 +27,17 @@ local make_on_attach = function(opts)
   opts.incr = default(opts.incr, false)
 
   return function(client, buf)
-    local set_key = function(k, v) 
+    local set_key = function(k, v)
       vim.api.nvim_buf_set_keymap(buf, 'n', k, v, {
         noremap = true,
         silent = true,
       })
     end
-    set_key('<leader><leader>', '<Cmd>lua vim.lsp.buf.hover()<CR>') 
-    set_key('<leader>d', '<Cmd>lua vim.lsp.buf.definition()<CR>') 
-    set_key('<leader>r', '<Cmd>lua vim.lsp.buf.references()<CR>') 
-    set_key('<leader>t', '<Cmd>lua vim.lsp.buf.type_definition()<CR>') 
+    set_key('<leader><leader>', '<Cmd>lua vim.lsp.buf.hover()<CR>')
+    set_key('<leader>d', '<Cmd>lua vim.lsp.buf.definition()<CR>')
+    set_key('<leader>r', '<Cmd>lua vim.lsp.buf.references()<CR>')
+    set_key('<leader>t', '<Cmd>lua vim.lsp.buf.type_definition()<CR>')
+    set_key('<leader>e', '<Cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
     if opts.fmt then
       vim.api.nvim_exec('au BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 1000)', false)
     end
@@ -44,6 +47,8 @@ local make_on_attach = function(opts)
         client.config.flags.allow_incremental_sync = true
       end
     end
+
+    lsp_status.on_attach(client, buf)
 
   end
 end
@@ -58,10 +63,13 @@ lsp.elmls.setup {
 }
 
 lsp.ocamllsp.setup(default_args)
-lsp.svelte.setup(default_args)
-lsp.pylsp.setup(default_args)
---lsp.pyright.setup(default_args)
+lsp.svelte.setup {
+  on_attach = make_on_attach { fmt = false }
+}
+--lsp.pylsp.setup(default_args)
+lsp.pyright.setup(default_args)
 lsp.gopls.setup(default_args)
+lsp.julials.setup(default_args)
 lsp.rust_analyzer.setup {
   on_attach = make_on_attach {},
   settings = {

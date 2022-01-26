@@ -37,5 +37,5 @@ colors:
 font:
   size: 10
   normal:
-    family: "Roboto Mono NerdFont"
+    family: "Fira Code"
     style: Regular

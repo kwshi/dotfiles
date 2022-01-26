@@ -1,8 +1,11 @@
 super + Return
-  alacritty
+  wezterm
 
 super + space
   rofi -show run
+
+super + shift + space; {b,a}
+  rofi -show '{book,audio}'
 
 super + ctrl + {1,2,3,4,5}
   bspc node -d {1,2,3,4,5}
@@ -20,7 +23,7 @@ super + {shift,ctrl,ctrl + alt} + {d,a,s,h,u,n,e,o,Up,Left,Down,Right}
   bspc {node -s,node -n,node -m} \
   {north,west,south,east,north,west,south,east,north,west,south,east} \
   --follow
-  
+
 super + {_,alt} + {d,a,s,h,u,n,e,o,Up,Left,Down,Right}
   bspc {node -f,monitor -f} \
   {north,west,south,east,north,west,south,east,north,west,south,east}

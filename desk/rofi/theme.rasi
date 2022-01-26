@@ -1,0 +1,81 @@
+// vi: ft=scss
+
+* {
+  text-color: #ebdbb2;
+  background-color: transparent;
+}
+
+window {
+  background-color: #32302f;
+  padding: 0;
+  border: 0;
+  border-color: #b8bb26;
+  font: "Roboto Mono Nerdfont 10";
+}
+
+mainbox {
+  padding: 0;
+  border: 0;
+}
+
+window {
+  children: [prompt, entry, message, listview];
+  orientation: horizontal;
+  spacing: 0;
+  anchor: north;
+  location: north;
+  width: 100%;
+}
+
+mode-switcher {
+  expand: false;
+  spacing: 0;
+}
+
+button {
+  padding: 4px 0.5em 3px 0.5em;
+  width: 3em;
+  background-color: #79740e;
+}
+
+button selected {
+  background-color: #b8bb26;
+  text-color: #1d2021;
+}
+
+message {
+  expand: true;
+  padding: 4px 0.5em 0px 0.5em;
+  border: 2px;
+}
+
+prompt {
+  background-color: #8ec07c;
+  text-color: #282828;
+  padding: 4px 0.5em 3px 0.5em;
+}
+
+entry {
+  expand: false;
+  width: 24em;
+  padding: 4px 0.5em 3px 0.5em;
+  placeholder: "...";
+  placeholder-color: #a89984;
+}
+
+listview {
+  layout: horizontal;
+  spacing: 0;
+}
+
+element {
+  padding: 4px 0.5em 3px 0.5em;
+}
+element.selected {
+  background-color: #689d6a;
+}
+element-text {
+  highlight: underline;
+}
+
+

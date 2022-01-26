@@ -1,6 +1,6 @@
 [section/base-top]
-font-0 = "RobotoMono Nerd Font:size=10;2"
-font-1 = "RobotoMono Nerd Font:size=10:weight=bold;2"
+font-0 = "Fira Code:size=10;2"
+font-1 = "Fira Code:size=10:weight=bold;2"
 font-2 = "Font Awesome 5 Free:size=9;2"
 font-3 = "Font Awesome 5 Free Solid:size=9;2"
 font-4 = "DejaVu Sans Mono:size=10"
@@ -17,8 +17,8 @@ modules-right = #spotify
 wm-restack = bspwm
 
 [section/base-bottom]
-font-0 = "RobotoMono Nerd Font:size=10;2"
-font-1 = "RobotoMono Nerd Font:size=10:weight=bold;2"
+font-0 = "Fira Code:size=10;2"
+font-1 = "Fira Code:size=10:weight=bold;2"
 font-2 = "Font Awesome 5 Free:size=9;2"
 font-3 = "Font Awesome 5 Free Solid:size=9;2"
 font-4 = "DejaVu Sans Mono:size=10"
@@ -37,13 +37,13 @@ wm-restack = bspwm
 
 [bar/main-top]
 inherit = section/base-top
-monitor = HDMI-A-0
-#DisplayPort-2
+monitor = DisplayPort-2
+#monitor = HDMI-A-0
 
 [bar/main-bottom]
 inherit = section/base-bottom
-monitor = HDMI-A-0
-#DisplayPort-2
+monitor = DisplayPort-2
+#monitor = HDMI-A-0
 
 tray-position = right
 
@@ -128,8 +128,9 @@ ramp-volume-2 = ""
 # u2586
 bar-volume-width = 20
 bar-volume-empty = " "
-bar-volume-fill = "▆"
-bar-volume-indicator = "▆"
+bar-volume-fill = "="
+bar-volume-indicator = "|"
+
 
 [module/temperature]
 type = internal/temperature

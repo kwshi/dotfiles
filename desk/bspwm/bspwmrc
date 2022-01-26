@@ -18,11 +18,13 @@ sxhkd -m 1 &
 
 picom --experimental-backends &
 
-alacritty &
 
 conky -d
 
-spotifyd
+(
+connmand-wait-online
+spotifyd --no-daemon
+) &
 
 # TODO conky when ready
 
@@ -35,10 +37,15 @@ bspc rule -a Alacritty:float state=floating
 
 polybar -r main-top &
 polybar -r main-bottom &
-#for disp in main tab; do 
-#  for pos in top bottom; do 
+#for disp in main tab; do
+#  for pos in top bottom; do
 #    polybar -r $disp-$pos &
 #  done
 #done
 
+fcitx5 -d
+
 bspc monitor primary -f
+
+
+alacritty &
