@@ -1,0 +1,3 @@
+[submodule "desk/xmonad"]
+	path = desk/xmonad
+	url = https://github.com/kwshi/my-xmonad
