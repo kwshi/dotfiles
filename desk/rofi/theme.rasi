@@ -10,7 +10,7 @@ window {
   padding: 0;
   border: 0;
   border-color: #b8bb26;
-  font: "Roboto Mono Nerdfont 10";
+  font: "JuliaMono 12";
 }
 
 mainbox {
@@ -45,20 +45,20 @@ button selected {
 
 message {
   expand: true;
-  padding: 4px 0.5em 0px 0.5em;
+  padding: 6px 0.5em 6px 0.5em;
   border: 2px;
 }
 
 prompt {
   background-color: #8ec07c;
   text-color: #282828;
-  padding: 4px 0.5em 3px 0.5em;
+  padding: 6px 0.5em 6px 0.5em;
 }
 
 entry {
   expand: false;
   width: 24em;
-  padding: 4px 0.5em 3px 0.5em;
+  padding: 6px 0.5em 6px 0.5em;
   placeholder: "...";
   placeholder-color: #a89984;
 }
@@ -69,7 +69,7 @@ listview {
 }
 
 element {
-  padding: 4px 0.5em 3px 0.5em;
+  padding: 6px 0.5em 6px 0.5em;
 }
 element.selected {
   background-color: #689d6a;

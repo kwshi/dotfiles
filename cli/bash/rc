@@ -8,17 +8,21 @@ function prepend_path {
   esac
 }
 
+prepend_path ~/'.venv/bin'
+prepend_path ~/'.pnpm-global/node_modules/.bin'
+prepend_path ~/'.cabal/bin'
+prepend_path ~/'.ghcup/bin'
+prepend_path ~/'.local/bin'
+
 #. ~/'dotfiles/cli/bash/bashrc.d/ps1.sh'
 . ~/'dotfiles/cli/bash/bashrc.d/alias.sh'
 #. ~/'dotfiles/cli/bash/bashrc.d/dbus.sh'
 . ~/'.cargo/env'
 . <(opam env)
 . <(starship init --print-full-init 'bash')
+. <(luarocks path)
+. <(stack --bash-completion-script 'stack')
 
-prepend_path ~/'.venv/bin'
-prepend_path ~/'.pnpm-global/node_modules/.bin'
-prepend_path ~/'.luarocks/bin'
-prepend_path ~/'.cabal/bin'
 
 export GPG_TTY="$(tty)"
 export EDITOR='nvim'

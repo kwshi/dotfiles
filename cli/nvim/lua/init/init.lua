@@ -11,6 +11,9 @@ cfgs.digestif = {
   },
 }
 
+require 'nvim-web-devicons'.setup {}
+require 'trouble'.setup {}
+
 local lsp_status = require 'lsp-status'
 lsp_status.register_progress()
 
@@ -33,11 +36,15 @@ local make_on_attach = function(opts)
         silent = true,
       })
     end
-    set_key('<leader><leader>', '<Cmd>lua vim.lsp.buf.hover()<CR>')
-    set_key('<leader>d', '<Cmd>lua vim.lsp.buf.definition()<CR>')
-    set_key('<leader>r', '<Cmd>lua vim.lsp.buf.references()<CR>')
-    set_key('<leader>t', '<Cmd>lua vim.lsp.buf.type_definition()<CR>')
-    set_key('<leader>e', '<Cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
+
+    --if not (opts.volar and vim.api.nvim_buf_get_option(buf, 'filetype') == 'typescript') then
+      set_key('<leader><leader>', '<Cmd>lua vim.lsp.buf.hover()<CR>')
+      set_key('<leader>d', '<Cmd>lua vim.lsp.buf.definition()<CR>')
+      set_key('<leader>r', '<Cmd>lua vim.lsp.buf.references()<CR>')
+      set_key('<leader>t', '<Cmd>lua vim.lsp.buf.type_definition()<CR>')
+      set_key('<leader>e', '<Cmd>lua vim.diagnostic.open_float()<CR>')
+    --end
+
     if opts.fmt then
       vim.api.nvim_exec('au BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 1000)', false)
     end
@@ -55,6 +62,7 @@ end
 
 local default_args = { on_attach = make_on_attach {} }
 
+-- volar already has
 lsp.tsserver.setup {
   on_attach = make_on_attach { fmt = false }
 }
@@ -63,8 +71,22 @@ lsp.elmls.setup {
 }
 
 lsp.ocamllsp.setup(default_args)
+lsp.hls.setup {
+  cmd = { 'haskell-language-server-wrapper', '--lsp' },
+  on_attach = make_on_attach {  },
+  single_file_support = true,
+}
 lsp.svelte.setup {
   on_attach = make_on_attach { fmt = false }
+}
+lsp.volar.setup {
+  on_attach = make_on_attach { fmt = false, volar = true },
+  --filetypes = {'typescript', 'vue'},
+  --init_options = {
+  --  languageFeatures = {
+  --    --hover = false,
+  --  },
+  --},
 }
 --lsp.pylsp.setup(default_args)
 lsp.pyright.setup(default_args)

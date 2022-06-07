@@ -49,6 +49,20 @@ Plug 'tpope/vim-fugitive'
 Plug 'jreybert/vimagit'
 Plug 'kdheepak/lazygit.nvim'
 
+Plug 'chrisbra/unicode.vim'
+
+Plug 'tbastos/vim-lua'
+"Plug 'willelz/teastylua.nvim'
+
+Plug 'rhysd/vim-clang-format'
+
+Plug 'folke/trouble.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
+
+Plug 'glacambre/firenvim'
+
+"Plug 'subnut/nvim-ghost.nvim'
+
 call plug#end()
 
 set number termguicolors expandtab autochdir
@@ -58,11 +72,20 @@ set signcolumn=number
 set wildmode=list:longest
 set backupcopy=yes
 set inccommand=nosplit
+set mouse=a
+
+set textwidth=80
+set formatoptions-=t fo-=c fo-=r fo-=o
 "set backup
 "set completeopt=menu,noinsert
 
+
 " for wrapping chinese text
-set formatoptions+=mB
+set formatoptions+=mM
+
+filetype off
+set rtp+=~/hacks/tater/extra/nvim
+filetype on
 
 "set rtp+=/data/hacks/nvim-colorizer.lua
 
@@ -77,6 +100,8 @@ nnoremap <silent> <leader>F :GFiles<cr>
 nnoremap <silent> <leader>f :Files<cr>
 nnoremap <silent> <leader>b :Buffers<cr>
 
+au FileType c,cpp ClangFormatAutoEnable
+
 "imap <silent> <tab> <Plug>(completion_smart_tab)
 "imap <silent> <s-tab> <Plug>(completion_smart_s_tab)
 
@@ -84,6 +109,9 @@ nnoremap <silent> <leader>b :Buffers<cr>
 au BufWritePre *.py Black target_version=py310
 let g:black_fast = 1
 let g:black_target_version = "py310"
+
+"au BufWritePre *.lua lua Teastylua()
+"let g:teastylua_options = '--column-width=80'
 
 
 silent! colorscheme gruvbox
@@ -97,6 +125,8 @@ let g:smoothie_speed_exponentiation_factor = 0.75
 let g:latex_to_unicode_auto = 0
 "let g:latex_to_unicode_file_types  = 'julia\|python\|haskell\|javascript\|typescript\|rust\|tex\|markdown'
 let g:latex_to_unicode_file_types = '.*'
+let g:latex_to_unicode_eager = 0
+let g:latex_to_unicode_suggestions = 0
 
 "let g:latex_to_unicode_keymap = 1
 
@@ -104,9 +134,10 @@ let g:Hexokinase_optInPatterns = 'full_hex,triple_hex,rgb,rgba,hsl,hsla,colour_n
 let g:Hexokinase_refreshEvents = ['TextChanged', 'TextChangedI', 'InsertLeave', 'BufRead']
 let g:Hexokinase_highlighters = ['backgroundfull']
 
-let g:vimtex_compiler_method = 'tectonic'
+let g:vimtex_compiler_method = 'latexmk'
 let g:vimtex_compiler_tectonic = {'options': ['--keep-logs', '--synctex', '-Zshell-escape']}
 let g:vimtex_compiler_latexmk_engines = {'_': '-lualatex'}
+let g:vimtex_compiler_latexmk = {'build_dir': '_build', 'options': ['-shell-escape', '-verbose', '-file-line-error', '-synctex=1', '-interaction=nonstopmode', '-halt-on-error']}
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_format_enabled = 1
 let g:vimtex_indent_on_ampersands = 0
@@ -114,7 +145,8 @@ let g:vimtex_indent_on_ampersands = 0
 let g:vimtex_quickfix_open_on_warning = 0
 let g:vimtex_mappings_disable = {'i': [']]']}
 let g:vimtex_imaps_enabled = 0
-let g:vimtex_indent_lists = ['example', 'subproblems', 'itemize', 'enumerate']
+let g:vimtex_indent_lists = ['example', 'subproblems', 'itemize', 'enumerate', 'spotlight']
+let g:vimtex_indent_tikz_commands = 0
 
 let g:julia_indent_align_brackets = 0
 let g:julia_indent_align_funcargs = 0

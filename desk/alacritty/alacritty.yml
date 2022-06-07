@@ -35,7 +35,7 @@ colors:
     white: "#ebdbb2"
 
 font:
-  size: 10
+  size: 12
   normal:
-    family: "Fira Code"
+    family: "JuliaMono"
     style: Regular

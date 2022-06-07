@@ -1,0 +1,17 @@
+set font "Fira Code 10"
+
+set statusbar-bg "#32302f"
+set statusbar-fg "#ebdbb2"
+
+set index-bg "#282828"
+set index-fg "#ebdbb2"
+
+set index-active-bg "#689d6a"
+
+set recolor true
+set recolor-keephue true
+set recolor-darkcolor "#1d202f"
+set recolor-lightcolor "#ebdbb2"
+set recolor-reverse-video true
+
+set selection-clipboard "clipboard"

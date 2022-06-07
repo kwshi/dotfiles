@@ -7,7 +7,6 @@ return {
   use_fancy_tab_bar = false,
   default_prog = {"/bin/bash"},
   font = wezterm.font_with_fallback({
-    'Fira Code',
     'JuliaMono',
   }),
   visual_bell = {
@@ -15,7 +14,7 @@ return {
   },
   bold_brightens_ansi_colors = false,
   use_ime = true,
-  font_size = 10,
+  font_size = 12,
   freetype_load_target = 'Light',
   hide_tab_bar_if_only_one_tab = true,
   window_padding = {
@@ -26,6 +25,8 @@ return {
     ['Gruvbox Dark'] = scheme,
   },
   color_scheme = 'Gruvbox Dark',
+  keys = {
+  },
 }
 
 

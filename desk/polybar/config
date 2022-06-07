@@ -1,6 +1,7 @@
+# vi: ft=dosini
 [section/base-top]
-font-0 = "Fira Code:size=10;2"
-font-1 = "Fira Code:size=10:weight=bold;2"
+font-0 = "JuliaMono:size=12;2"
+font-1 = "JuliaMono:size=12:weight=bold;2"
 font-2 = "Font Awesome 5 Free:size=9;2"
 font-3 = "Font Awesome 5 Free Solid:size=9;2"
 font-4 = "DejaVu Sans Mono:size=10"
@@ -8,17 +9,17 @@ font-5 = "Noto Sans Symbols2:size=10"
 
 background = #00000000
 foreground = #ebdbb2
-height = 24
+height = 32
 
 separator = " "
 modules-left = bspwm title
-modules-right = #spotify
+#modules-right = #spotify
 
 wm-restack = bspwm
 
 [section/base-bottom]
-font-0 = "Fira Code:size=10;2"
-font-1 = "Fira Code:size=10:weight=bold;2"
+font-0 = "JuliaMono:size=12;2"
+font-1 = "JuliaMono:size=12:weight=bold;2"
 font-2 = "Font Awesome 5 Free:size=9;2"
 font-3 = "Font Awesome 5 Free Solid:size=9;2"
 font-4 = "DejaVu Sans Mono:size=10"
@@ -28,7 +29,7 @@ bottom = true
 
 background = #00000000
 foreground = #ebdbb2
-height = 24
+height = 32
 
 modules-left = date audio eth wifi temperature cpu
 modules-center =
@@ -169,7 +170,7 @@ label-connected = "[%local_ip%] - %upspeed:8% - %downspeed:8%"
 
 ramp-signal-0 = ""
 
-[module/spotify]
-type = custom/script
-exec = /home/kshi/dotfiles/script/spotify.sh
-interval = 1
+#[module/spotify]
+#type = custom/script
+#exec = /home/kshi/dotfiles/script/spotify.sh
+#interval = 1

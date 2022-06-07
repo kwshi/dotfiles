@@ -8,9 +8,9 @@ bspc config normal_border_color '#1d2021'
 
 . <(dbus-launch --sh-syntax)
 
-hsetroot -add '#32302f' -add '#689d6a' -gradient 0
 
 autorandr -c
+hsetroot -add '#32302f' -add '#689d6a' -gradient 0
 
 sct 4000
 
@@ -18,8 +18,9 @@ sxhkd -m 1 &
 
 picom --experimental-backends &
 
-
-conky -d
+. <(luarocks path)
+conky -d -c ~/'dotfiles/desk/conky/left.conf'
+conky -d -c ~/'dotfiles/desk/conky/right.conf' 2> /tmp/what
 
 (
 connmand-wait-online

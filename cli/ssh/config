@@ -35,3 +35,13 @@ Host remarkable
 Host gitea.kshi.xyz
   User git
   IdentityFile /data/ssh/keys/gitea.kshi.xyz
+
+Host knuth
+  Hostname knuth.cs.hmc.edu
+  User kwshi
+  IdentityFile /data/ssh/keys/knuth
+
+Host knuth.cs.hmc.edu
+  User kwshi
+  IdentityFile /data/ssh/keys/knuth
+
