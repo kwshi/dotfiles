@@ -12,7 +12,7 @@ bspc config normal_border_color '#1d2021'
 autorandr -c
 hsetroot -add '#32302f' -add '#689d6a' -gradient 0
 
-sct 4000
+sct 3500
 
 sxhkd -m 1 &
 

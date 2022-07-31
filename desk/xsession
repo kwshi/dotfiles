@@ -1,4 +1,23 @@
 #!/bin/bash
 
-#.local/bin/kshi-xmonad
+function prepend_path {
+  for p in "$@"; do export PATH="$p:$PATH"; done
+}
+
+prepend_path ~/'.ghcup/bin' ~/'.cabal/bin'
+
+echo "$PATH" > ~/.path
+
+#set -euo pipefail
+
+#~/.local/bin/xmonad &> ~/.xmonad.log
+#xmonad &> ~/.xmonad.log
+
+# TODO use blinc to bootstrap a prebuilt xmonad with the OS image
+#xmonad &> ~/.xmonad-prebuilt.log
+
+#./dotfiles/desk/penrose/target/release/ks-penrose &> ~/.penrose.log
+
+#awesome
+
 exec bspwm

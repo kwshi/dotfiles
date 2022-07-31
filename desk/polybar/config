@@ -12,10 +12,11 @@ foreground = #ebdbb2
 height = 32
 
 separator = " "
-modules-left = bspwm title
+modules-left = ws title
+#modules-left = bspwm title
 #modules-right = #spotify
 
-wm-restack = bspwm
+wm-restack = generic
 
 [section/base-bottom]
 font-0 = "JuliaMono:size=12;2"
@@ -34,7 +35,7 @@ height = 32
 modules-left = date audio eth wifi temperature cpu
 modules-center =
 
-wm-restack = bspwm
+wm-restack = generic
 
 [bar/main-top]
 inherit = section/base-top
@@ -55,6 +56,28 @@ monitor = HDMI-A-0
 [bar/tab-bottom]
 inherit = section/base-bottom
 monitor = HDMI-A-0
+
+[module/ws]
+type = internal/xworkspaces
+
+label-active-padding   = 1
+label-empty-padding    = 1
+label-occupied-padding = 1
+label-urgent-padding   = 1
+label-active   = "%name%"
+label-empty    = "%name%"
+label-occupied = "%name%"
+label-urgent   = "%name%"
+label-active-background   = #b8bb26
+label-active-foreground   = #282828
+label-empty-background    = #1d2021
+label-occupied-background = #79740e
+label-urgent-background   = #b57614
+
+reverse-scroll = true
+
+
+
 
 [module/bspwm]
 type = internal/bspwm

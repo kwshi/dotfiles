@@ -1,0 +1,12 @@
+name: "ks-taffybar"
+version: 0.0.0
+synopsis: "Kye's taffybar configuration"
+
+executables:
+  taffybar:
+    main: "taffybar.hs"
+    source-dirs: "."
+    dependencies:
+      - "base"
+      - "containers"
+      - "taffybar"

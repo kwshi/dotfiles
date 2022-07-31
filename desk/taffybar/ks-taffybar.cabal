@@ -1,0 +1,22 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.4.
+--
+-- see: https://github.com/sol/hpack
+
+name:           ks-taffybar
+version:        0.0.0
+synopsis:       Kye's taffybar configuration
+build-type:     Simple
+
+executable taffybar
+  main-is: taffybar.hs
+  other-modules:
+      Paths_ks_taffybar
+  hs-source-dirs:
+      ./
+  build-depends:
+      base
+    , containers
+    , taffybar
+  default-language: Haskell2010
