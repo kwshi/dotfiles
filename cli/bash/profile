@@ -1,1 +1,13 @@
+function prepend_path {
+  case ":$PATH:" in
+    *:"$1":*) ;;
+    *) export PATH="$1:$PATH";;
+  esac
+}
+
+prepend_path ~/'.ghcup/bin'
+prepend_path ~/'.cabal/bin'
+
 . ~/'.cargo/env'
+
+. <(luarocks path)
