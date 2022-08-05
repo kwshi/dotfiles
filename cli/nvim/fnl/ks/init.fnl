@@ -3,6 +3,7 @@
 (set vim.o.expandtab true)
 (set vim.o.autochdir true)
 
+
 (set vim.o.shiftwidth 2)
 (set vim.o.tabstop 2)
 (set vim.o.signcolumn :number)
@@ -17,6 +18,7 @@
 (vim.api.nvim_command "colorscheme gruvbox")
 
 (set vim.g.mapleader " ")
+(set vim.g.maplocalleader ",")
 
 (vim.keymap.set :n :<space> :<nop>)
 (vim.keymap.set :n :<leader>F :<cmd>GFiles<cr>)
@@ -30,9 +32,12 @@
 (require :ks.misc.latex-to-unicode)
 (require :ks.misc.prettier)
 (require :ks.misc.smoothie)
-(require :ks.misc.ultisnips)
+;;(require :ks.misc.ultisnips)
 (require :ks.misc.lsp-status)
 (require :ks.misc.web-devicons)
+(require :ks.misc.firenvim)
+(require :ks.misc.luasnip)
+(require :ks.misc.conjure)
 
 (require :ks.lang.python)
 (require :ks.lang.tex)

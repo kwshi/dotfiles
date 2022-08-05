@@ -1,3 +1,7 @@
+(local ks/snip (require :ks.lib.snippet))
+(local ks/str  (require :ks.lib.string))
+(local ks/tab  (require :ks.lib.table))
+
 (local tectonic-opts
   ["--keep-logs" "--synctex" "-Zshell-escape"])
 
@@ -29,39 +33,4 @@
 (set vim.g.vimtex_indent_lists list-envs)
 (set vim.g.vimtex_indent_tikz_commands false)
 
-
-;; lsp.texlab.setup {
-;;   on_attach = make_on_attach {},
-;;   settings = {
-;;     texlab = {
-;;       --auxDirectory = ".",
-;;       --bibtexFormatter = "texlab",
-;;       build = {
-;;         executable = "tectonic",
-;;         args = { "%f", "--synctex", "--keep-logs", "--keep-intermediates" },
-;;         isContinuous = false
-;;       },
-;;       --chktex = {
-;;       --  onEdit = false,
-;;       --  onOpenAndSave = false
-;;       --},
-;;       --diagnosticsDelay = 300,
-;;       --formatterLineLength = 80,
-;;       --forwardSearch = {
-;;       --  args = {}
-;;       --}
-;;     }
-;;   }
-;; }
-;; lsp.digestif.setup(default_args)
-;; cfgs.digestif = {
-;;   default_config = {
-;;     cmd = {'digestif'},
-;;     filetypes = {'tex', 'bib'},
-;;     root_dir = function(filename)
-;;       return util.path.dirname(filename)
-;;     end,
-;;   },
-;; }
-
-
+(require :ks.snippet.tex)

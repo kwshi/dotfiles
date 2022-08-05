@@ -3,8 +3,11 @@
 
 call plug#begin('~/.local/share/nvim/site/plug')
 
+Plug 'L3MON4D3/LuaSnip'
+
 Plug 'rktjmp/hotpot.nvim'
 Plug 'bakpakin/fennel.vim'
+Plug 'Olical/conjure'
 
 Plug 'lilydjwg/fcitx.vim'
 
@@ -28,7 +31,7 @@ Plug 'glts/vim-textobj-comment'
 
 Plug 'cespare/vim-toml'
 
-Plug 'JuliaEditorSupport/julia-vim'
+"Plug 'JuliaEditorSupport/julia-vim'
 
 Plug 'vmchale/just-vim'
 
@@ -36,7 +39,7 @@ Plug 'lervag/vimtex'
 
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
-Plug 'SirVer/ultisnips'
+"Plug 'SirVer/ultisnips'
 "Plug 'honza/vim-snippets'
 
 Plug 'ntpeters/vim-better-whitespace'
@@ -95,3 +98,18 @@ let g:better_whitespace_enabled = 1
 let g:strip_whitespace_on_save = 1
 let g:strip_whitespace_confirm = 0
 let g:strip_only_modified_lines = 0
+
+" press <Tab> to expand or jump in a snippet. These can also be mapped separately
+" via <Plug>luasnip-expand-snippet and <Plug>luasnip-jump-next.
+"imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
+"imap <silent> <Tab> <Plug>luasnip-expand-or-jump
+" -1 for jumping backwards.
+inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
+
+snoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr>
+snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>
+
+" For changing choices in choiceNodes (not strictly necessary for a basic setup).
+imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+
