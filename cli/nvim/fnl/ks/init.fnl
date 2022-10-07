@@ -13,7 +13,10 @@
 (set vim.o.mouse :a)
 
 (set vim.o.textwidth 80)
-(set vim.o.formatoptions :qjmMl)
+;(set vim.o.formatoptions :qjmMl)
+(vim.api.nvim_create_autocmd
+  [:BufEnter]
+  {:callback #(set vim.o.formatoptions :qjmMl)})
 
 (vim.api.nvim_command "colorscheme gruvbox")
 
@@ -38,6 +41,8 @@
 (require :ks.misc.firenvim)
 (require :ks.misc.luasnip)
 (require :ks.misc.conjure)
+(require :ks.misc.hp)
+(require :ks.misc.treesitter)
 
 (require :ks.lang.python)
 (require :ks.lang.tex)
@@ -50,3 +55,4 @@
 (require :ks.lang.julia)
 (require :ks.lang.rust)
 (require :ks.lang.go)
+(require :ks.lang.astro)

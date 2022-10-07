@@ -1,77 +1,83 @@
-(local ks/snip (require :ks.lib.snippet))
-(local ks/str  (require :ks.lib.string))
-(local ks/tab  (require :ks.lib.table))
+(import-macros {: snippet : generate* : let* : map*} :ks.macro.snippet)
 
-(macro parse [...]
-  `(let [ls# (require :luasnip)]
-  ,(icollect
-    [_ token (ipairs [...])]
-    (match token
-      (where [label] (sym? token))
-      (match label
-        "\\" `(ls#.text_node ["" ""])
-        (where _ (label:find "^[$&]%d+$"))
-        (match (label:sub 1 1)
-          :& `(ls#.function_node (fn [[[a#]]] a#) ,(tonumber (label:sub 2)))
-          :$ `(ls#.insert_node ,(tonumber (label:sub 2))))
-        _ `(ls#.text_node ,token))
-      (where _ (= (type token) :string)) `(ls#.text_node ,token)
-      _ (assert-compile false "invalid token type" token)))))
+(local ls (require :luasnip))
 
-;;(macrodebug (parse
-;;  "\\begin{" !1 "}" \\
-;;  "  " !0 \\
-;;  "\\end{" ?1 "}"))
+(macro snippet-env [opt wide]
+  (let [trig (.. (if wide :ENV :env) (if opt "'" ""))
+        wide-nodes (if wide `[/ /] `[/])
+        opt-nodes (if opt `["[" ($ 2) "]"] `[])
+        opt-offset (if opt 1 0)]
+    `(snippet ,trig ["\\begin{" ($ 1) "}" ,opt-nodes
+                     ,wide-nodes
+                     "  " ($ 0)
+                     ,wide-nodes
+                     "\\end{" (& 1) "}"])))
 
-(local s ks/snip.shorthand)
+(macro snippet-cmd [[trig-base cmd] n-opt padding]
+  (let [trig (.. (match padding
+                   0 trig-base
+                   1 (.. (-> (trig-base:sub 1 1) string.upper)
+                         (trig-base:sub 2))
+                   2 (trig-base:upper)
+                   _ (assert-compile false "padding size must be one of 0, 1, 2"))
+                 (string.rep "'" n-opt))
+        index-arg (+ 1 n-opt)
+        nodes-pad `[]
+        nodes-opt `[]
+        nodes-arg (if (= padding 0) `($$ ,index-arg) `["  " ($$ ,index-arg) ($ 0)])
+        ]
+    (for [i 1 padding] (table.insert nodes-pad `/))
+    (for [i 1 n-opt] (table.insert nodes-opt `["[" ($ ,i) "]"]))
+    `(snippet ,trig ["\\" ,cmd ,nodes-opt "{" ,nodes-pad ,nodes-arg ,nodes-pad "}"])))
 
-(fn snippet-list [key env opts large]
-  (let [ls ks/snip.shorthand trig (.. (if large (string.upper key) key) (if opts "'" ""))]
-    (ks/snip.snippet
-      trig
-      (ks/tab.flatten
-        [[(s.t (ks/str.<> "\\begin{" env "}"))]
-         (if opts [(s.t "[") (s.i 1) (s.t "]")] [])
-         (if large [(s.t ["" "" "  "])] [(s.t ["" "  "])])
-         [(s.i 0)]
-         (if large [(s.t ["" ""])] [])
-         [(s.t ["" (ks/str.<> "\\end{" env "}")])]
-         ]))))
 
-(snippet-list :li :itemize false false)
-
-(ks/snip.add
+(ls.add_snippets
   :tex
-  (ks/tab.flatten (icollect
-    [key env (pairs {:li :itemize
-                     :le :enumerate
-                     :ld :description
-                     :tk :tikzpicture
-                     :ct :center})]
-    [(snippet-list key env false false)
-     (snippet-list key env false true)
-     (snippet-list key env true false)
-     (snippet-list key env true true)]))
-  (icollect
-    [trig cmd (pairs {:it :textit
-                      :bf :textbf
-                      :em :emph
-                      :tx :text
-                      :pg :paragraph
-                      :sec :section
-                      :ssec :subsection
-                      :sssec :subsubsection
-                      :ssssec :subsubsubsection})]
-    (ks/snip.snippet trig [(s.t (ks/str.<> "\\" cmd "{")) (s.i 1) (s.t "}")]))
-  [(ks/snip.snippet :ii (s.t "\\item "))
-   (ks/snip.snippet "ii'" [(s.t "\\item[") (s.i 1) (s.t "] ")])
-   (ks/snip.snippet :dc [(s.t "\\documentclass{") (s.i 1) (s.t "}")])
-   (ks/snip.snippet "dc'" [(s.t "\\documentclass[") (s.i 1) (s.t "]{") (s.i 2) (s.t "}")])
-   (ks/snip.snippet :gr [(s.t "{") (s.i 1) (s.t "}")])
-   (ks/snip.snippet :mm [(s.t "\\(") (s.i 1) (s.t "\\)")])
-   (ks/snip.snippet :MM [(s.t ["\\[" "  "]) (s.i 0) (s.t ["" "\\]"])])
-   (ks/snip.snippet :env (parse "\\begin{" $1 "}" \ "  " $0 \ "\\end{" &1 "}" ))
-   (ks/snip.snippet "env'" (parse "\\begin{" $1 "}[" $2 "]" \ "  " $0 \ "\\end{" &1 "}" ))
-   (ks/snip.snippet :ENV (parse "\\begin{" $1 "}" \ \ "  " $0 \ \ "\\end{" &1 "}" ))
-   (ks/snip.snippet "ENV'" (parse "\\begin{" $1 "}[" $2 "]" \ \ "  " $0 \ \ "\\end{" &1 "}" ))
-   ])
+  (generate*
+
+    [(snippet :mm ["\\(" ($$ 1) "\\)"])
+
+     ; want to do ($$ 0) here but can't (throws error).
+     ; see possibly related, <https://github.com/L3MON4D3/LuaSnip/issues/398>
+     (snippet :MM ["\\[" / "  " ($ 0) / "\\]"])
+
+     (snippet :im ["\\item"])
+     (snippet "im'" ["\\item[" ($ 1) "]"])
+
+     (snippet :doc ["\\begin{document}" / / ($ 0) / / "\\end{document}"])
+
+     (snippet :lit ["\\begin{itemize}" / "  " ($ 0) / "\\end{itemize}"])
+
+     ]
+
+    (map* [[false true]
+           [false true]] [(snippet-env)])
+
+    (map* [[[:up :usepackage]
+            [:rp :RequirePackage]
+            [:dc :documentclass]]
+           [0 1]
+           [0]] [(snippet-cmd)])
+
+    (let* [[trig cmd] [[:it :textit]
+                       [:bf :textbf]
+                       [:tt :texttt]
+                       [:sl :textsl]
+
+                       [:em :emph]
+                       [:tx :text]
+
+                       [:au :author]
+                       [:ti :title]
+                       [:da :date]
+
+                       [:pg :paragraph]
+                       [:sec :section]
+                       [:ssec :subsection]
+                       [:sssec :subsubsection]
+                       [:ssssec :subsubsubsection]]]
+      [(snippet trig ["\\" (.t cmd) "{" ($$ 1) "}"])])
+
+    ))
+
+

@@ -1,0 +1,53 @@
+* {
+  all: unset;
+}
+
+.taffy-window {
+  font: 16px "JuliaMono", monospace;
+  color: #ebdbb2;
+}
+
+.taffy-box {
+}
+
+.contents {
+}
+
+.workspace-label {
+  padding: 0 0.75rem;
+}
+
+/* workspace states; see <https://hackage.haskell.org/package/taffybar-3.1.1/docs/src/System.Taffybar.Widget.Workspaces.html#getCSSClass> */
+.active {
+  background-color: #b8bb26;
+  color: #1d2021;
+}
+
+.visible {
+  background: #79740e;
+}
+
+.urgent {
+  background: #d65d0e;
+}
+
+.empty {
+  background: #1d2021;
+}
+
+.hidden {
+  background: #3c3836;
+}
+
+/* window title widget */
+.windows {
+  padding: 0 0.75rem;
+}
+
+.sni-tray {
+  /*padding: 0.5rem 0;*/
+}
+
+.tray-icon-image {
+  padding: 0 0.5rem;
+}

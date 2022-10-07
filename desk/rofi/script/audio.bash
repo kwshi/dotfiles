@@ -39,9 +39,9 @@ case "$1" in
     ;;
 
   'hdmi')
-    profile 'hdmi' 'output:hdmi-stereo-extra3'
+    profile 'hdmi' 'output:hdmi-stereo-extra2'
     profile 'pc' 'off'
     profile 'hyperx' 'off'
-    profile 'c920' 'off';;
+    profile 'c920' 'input:analog-stereo';;
 
 esac

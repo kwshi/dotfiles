@@ -5,8 +5,19 @@ synopsis: "Kye's taffybar configuration"
 executables:
   taffybar:
     main: "taffybar.hs"
-    source-dirs: "."
+    source-dirs: [".", "lib"]
     dependencies:
       - "base"
       - "containers"
       - "taffybar"
+      - "dyre"
+      - "gtk-strut"
+      - "transformers"
+      - "gi-gdk"
+      - "gi-gtk"
+      - "gtk-sni-tray"
+
+        #library:
+        #  source-dirs: "lib"
+        #  exposed-modules:
+        #    - "KS.Widget"

@@ -11,6 +11,8 @@ background = #00000000
 foreground = #ebdbb2
 height = 32
 
+monitor-strict = true
+
 separator = " "
 modules-left = ws title
 #modules-left = bspwm title
@@ -39,12 +41,12 @@ wm-restack = generic
 
 [bar/main-top]
 inherit = section/base-top
-monitor = DisplayPort-2
+monitor = DisplayPort-1
 #monitor = HDMI-A-0
 
 [bar/main-bottom]
 inherit = section/base-bottom
-monitor = DisplayPort-2
+monitor = DisplayPort-1
 #monitor = HDMI-A-0
 
 tray-position = right
@@ -59,6 +61,7 @@ monitor = HDMI-A-0
 
 [module/ws]
 type = internal/xworkspaces
+
 
 label-active-padding   = 1
 label-empty-padding    = 1
@@ -175,7 +178,7 @@ ramp-4 = ""
 
 [module/wifi]
 type = internal/network
-interface = wlan0
+interface = wlp5s0
 
 format-connected = "<ramp-signal> <label-connected>"
 format-connected-padding = 1

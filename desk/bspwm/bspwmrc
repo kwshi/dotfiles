@@ -36,13 +36,6 @@ bspc rule -a Zathura state=tiled
 bspc rule -a Peek state=floating
 bspc rule -a Alacritty:float state=floating
 
-polybar -r main-top &
-polybar -r main-bottom &
-#for disp in main tab; do
-#  for pos in top bottom; do
-#    polybar -r $disp-$pos &
-#  done
-#done
 
 fcitx5 -d
 

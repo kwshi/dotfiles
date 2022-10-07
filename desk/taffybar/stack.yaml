@@ -1,8 +1,0 @@
-system-ghc: true
-
-resolver: "lts-19.15"
-
-packages: ["."]
-
-extra-deps:
-  - "taffybar-3.3.0@sha256:1c8a9b1c098cd85637290289b47f0faf18cb1496723d2d933f167a3cb063a08c,7087"

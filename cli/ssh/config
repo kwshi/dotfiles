@@ -3,6 +3,11 @@ Host crux
   User kshi
   IdentityFile /data/ssh/keys/crux
 
+Host walnut
+  Hostname walnut.math.ucla.edu
+  User kwshi
+  IdentityFile /data/ssh/keys/walnut
+
 Host gh
   Hostname github.com
   User git

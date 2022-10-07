@@ -1,0 +1,5 @@
+#!/bin/sh
+#polybar -r main-top &
+#polybar -r main-bottom &
+hsetroot -solid '#32302f'
+sct 3500

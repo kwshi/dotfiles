@@ -10,5 +10,6 @@
  {:t ls.text_node
   :i ls.insert_node
   :f ls.function_node
-  :s ls.snippet_node}}
+  :s ls.snippet_node
+  :d ls.dynamic_node}}
 

@@ -13,11 +13,18 @@ echo "$PATH" > ~/.path
 #~/.local/bin/xmonad &> ~/.xmonad.log
 #xmonad &> ~/.xmonad.log
 
+#exec dbus-run-session xmonad
+#bspwm
+
 # TODO use blinc to bootstrap a prebuilt xmonad with the OS image
 #xmonad &> ~/.xmonad-prebuilt.log
 
 #./dotfiles/desk/penrose/target/release/ks-penrose &> ~/.penrose.log
 
-#awesome
+exec dbus-run-session awesome
 
-exec bspwm
+#. <(luarocks path)
+#awesome
+#bspwm
+
+#bspwm

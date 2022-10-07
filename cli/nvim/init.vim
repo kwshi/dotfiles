@@ -7,7 +7,7 @@ Plug 'L3MON4D3/LuaSnip'
 
 Plug 'rktjmp/hotpot.nvim'
 Plug 'bakpakin/fennel.vim'
-Plug 'Olical/conjure'
+"Plug 'Olical/conjure'
 
 Plug 'lilydjwg/fcitx.vim'
 
@@ -31,7 +31,7 @@ Plug 'glts/vim-textobj-comment'
 
 Plug 'cespare/vim-toml'
 
-"Plug 'JuliaEditorSupport/julia-vim'
+Plug 'JuliaEditorSupport/julia-vim'
 
 Plug 'vmchale/just-vim'
 
@@ -67,12 +67,21 @@ Plug 'kyazdani42/nvim-web-devicons'
 
 Plug 'glacambre/firenvim'
 
+"Plug 'wuelnerdotexe/vim-astro'
+
 "Plug 'subnut/nvim-ghost.nvim'
 
 call plug#end()
 
-lua require 'hotpot'.setup { compiler = { modules = { correlate = true } } }
-lua require 'ks'
+lua << EOF
+require 'hotpot'.setup {
+  compiler = {
+    modules = { correlate = true },
+    macros = { env = "_COMPILER" },
+  },
+}
+require 'ks'
+EOF
 
 filetype off
 set rtp+=~/hacks/tater/extra/nvim
@@ -104,12 +113,12 @@ let g:strip_only_modified_lines = 0
 "imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
 "imap <silent> <Tab> <Plug>luasnip-expand-or-jump
 " -1 for jumping backwards.
-inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
-
-snoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr>
-snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>
-
-" For changing choices in choiceNodes (not strictly necessary for a basic setup).
-imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
-smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
-
+"inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
+"
+"snoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr>
+"snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>
+"
+"" For changing choices in choiceNodes (not strictly necessary for a basic setup).
+"imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+"smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+"

@@ -1,3 +1,3 @@
-(import-macros ks/snip/macro :ks.lib.snippet.macro)
+(import-macros ks/snip/macro :ks.macro.snippet)
 
-(macrodebug (ks/snip/macro.parse "hi"))
+;;(macrodebug (ks/snip/macro.parse "hi"))

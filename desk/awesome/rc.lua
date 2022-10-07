@@ -1,4 +1,5 @@
-local fennel = require('fennel')
-fennel.path = fennel.path .. ';.config/awesome/?.fnl'
+require 'luarocks.loader'
+local fennel = require 'fennel'
+fennel.path = fennel.path .. ';.config/awesome/?.fnl;.config/awesome/?/init.fnl'
 table.insert(package.searchers, fennel.searcher)
-require('main')
+require 'ks'
