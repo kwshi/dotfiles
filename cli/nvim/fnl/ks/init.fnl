@@ -45,6 +45,7 @@
 (require :ks.misc.treesitter)
 
 (require :ks.lang.python)
+(require :ks.lang.c)
 (require :ks.lang.tex)
 (require :ks.lang.typescript)
 (require :ks.lang.elm)

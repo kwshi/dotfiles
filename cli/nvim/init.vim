@@ -60,12 +60,15 @@ Plug 'chrisbra/unicode.vim'
 Plug 'tbastos/vim-lua'
 "Plug 'willelz/teastylua.nvim'
 
-Plug 'rhysd/vim-clang-format'
+"Plug 'rhysd/vim-clang-format'
 
 Plug 'folke/trouble.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 
 Plug 'glacambre/firenvim'
+
+Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'MunifTanjim/eslint.nvim'
 
 "Plug 'wuelnerdotexe/vim-astro'
 
@@ -92,7 +95,6 @@ filetype on
 "let g:completion_enable_server_trigger = 0
 
 
-au FileType c,cpp ClangFormatAutoEnable
 
 "imap <silent> <tab> <Plug>(completion_smart_tab)
 "imap <silent> <s-tab> <Plug>(completion_smart_s_tab)

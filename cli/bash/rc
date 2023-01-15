@@ -30,3 +30,19 @@ export EDITOR='nvim'
 function spawn {
   nohup "$@" > '/dev/null' 2> '/dev/null' &
 }
+
+function run-cpp {
+  local tmp="${XDG_RUNTIME_DIR:-'/tmp'}/ks-run-cpp"
+  local exe="$tmp/${1%'.cpp'}"
+  mkdir -p "$tmp"
+
+  echo $'\e[36;1mcompiling '"${1@Q}"$'…\e[m'
+  if clang++ -o "$exe" -g \
+    -Werror -Wall -Wextra -Wconversion \
+    "$1"; then
+    echo $'\e[32;1mcompilation success! running…\e[m'
+    "$exe"
+  else
+    echo $'\e[31;1mcompilation failed!\e[m'
+  fi
+}

@@ -50,3 +50,7 @@ Host knuth.cs.hmc.edu
   User kwshi
   IdentityFile /data/ssh/keys/knuth
 
+Host hyperschedule
+  User root
+  Hostname srv.banana.hyperschedule.io
+  IdentityFile /data/ssh/keys/hyperschedule
