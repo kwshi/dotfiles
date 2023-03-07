@@ -13,6 +13,7 @@ prepend_path ~/'.pnpm-global/node_modules/.bin'
 prepend_path ~/'.cabal/bin'
 prepend_path ~/'.ghcup/bin'
 prepend_path ~/'.local/bin'
+prepend_path '/opt/texlive/2022/bin/x86_64-linux'
 
 #. ~/'dotfiles/cli/bash/bashrc.d/ps1.sh'
 . ~/'dotfiles/cli/bash/bashrc.d/alias.sh'
