@@ -1,0 +1,30 @@
+defaultIndent: "  "
+noAdditionalIndent:
+  problem: 0
+  problem-t: 0
+  inlineMath: 0
+  subproblems: 1
+  itemize: 1
+indentRules:
+  inlineMath: "  "
+  item: "  "
+indentAfterItems:
+  subproblems: 1
+modifyLineBreaks:
+  textWrapOptions:
+    columns: 80
+    removeBlockLineBreaks: 1
+    multipleSpacesToSingle: 1
+    when: "after"
+    comments:
+      wrap: 1
+    blocksFollow:
+      other: '\\begin\{(?:problem(?:-[tc])?)\}(?:\[[0-9A-Za-z _\-=,.]*\])?|\\item(?:\[.*\])?'
+  environments:
+    BeginStartsOnOwnLine: 1
+    BodyStartsOnOwnLine: 1
+    EndStartsOnOwnLine: 1
+    EndFinishesWithLineBreak: 1
+fineTuning:
+  environments:
+    name: '[0-9A-Za-z_\-@\*]+'

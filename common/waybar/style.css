@@ -1,0 +1,63 @@
+window#waybar {
+  font-size: 16px;
+  font-family: "JuliaMono";
+  background-color: #1d2021;
+  color: #ebdbb2;
+}
+
+#tags button {
+  padding: 0.25em 0.5em;
+  color: inherit;
+  border-radius: 0;
+  border: none;
+  transition: none;
+}
+
+/* https://github.com/Alexays/Waybar/issues/60#issuecomment-1604253114 */
+#tags button:hover {
+  box-shadow: none;
+  text-shadow: none;
+  background: none;
+}
+
+#tags button.occupied {
+  background-color: #32302f;
+}
+
+#tags button.focused {
+  background-color: #8ec07c;
+  color: #1d2021;
+}
+
+#tags button.urgent {
+  background-color: #cc241d;
+  color: #fff;
+}
+
+#network,
+#pulseaudio,
+#cpu,
+#memory,
+#mpris {
+  padding: 0.5em 0.75em;
+}
+
+#tray {
+  padding: 0 0.75em;
+}
+
+#network {
+  background-color: #9d0006;
+}
+#pulseaudio {
+  background-color: #af3a03;
+}
+#cpu {
+  background-color: #b57614;
+}
+#memory {
+  background-color: #79740e;
+}
+#mpris {
+  background-color: #427b58;
+}

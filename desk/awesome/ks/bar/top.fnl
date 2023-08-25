@@ -7,7 +7,7 @@
 
 (local tasklist-buttons
   (gears.table.join
-    (awful.button [] 1 #(if (= $ _G.client.focus) (set $.minimized true) ($:emit_signal :request::activate :tasklist {:raise true})))
+    (awful.button [] 1 #(if (= $ _G.client.focus) (tset $ :minimized true) ($:emit_signal :request::activate :tasklist {:raise true})))
     ))
 
 (fn attach [screen]
