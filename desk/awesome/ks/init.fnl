@@ -22,26 +22,32 @@
 (set menubar.utils.terminal :alacritty)
 
 (fn with-layout [layout ...]
-  (let [tbl [...]] (set tbl.layout layout) tbl))
+  (let [tbl [...]]
+    (set tbl.layout layout)
+    tbl))
 
 (fn widget [class props children]
   (let [w {:widget class}]
-    (each [k v (pairs props)] (tset w k v))
-    (each [i v (ipairs children)] (tset w i v))
+    (each [k v (pairs props)]
+      (tset w k v))
+    (each [i v (ipairs children)]
+      (tset w i v))
     w))
 
-(awful.screen.connect_for_each_screen
-  (fn [screen]
-    (awful.tag [:1 :2 :3 :4 :5] screen awful.layout.suit.tile)
+(awful.screen.connect_for_each_screen (fn [screen]
+                                        (awful.tag [:1 :2 :3 :4 :5] screen
+                                                   awful.layout.suit.tile)
+                                        (local top-bar (ks/bar/top screen))
+                                        (ks/bar/bottom screen)))
 
-    (local top-bar (ks/bar/top screen))
-    (ks/bar/bottom screen)
-
-
-    ))
-
-(_G.client.connect_signal :focus #(do (set $.border_color beautiful.border_focus)))
-(_G.client.connect_signal :unfocus #(do (set $.border_color beautiful.border_normal)))
+(_G.client.connect_signal :focus
+                          (fn [client]
+                            (do
+                              (set client.border_color beautiful.border_focus))))
+(_G.client.connect_signal :unfocus
+                          (fn [client]
+                            (do
+                              (set client.border_color beautiful.border_normal))))
 
 (set awful.rules.rules
      [{:rule {}
@@ -49,8 +55,6 @@
                     :border_width beautiful.border_width
                     :border_color beautiful.border_normal
                     :focus awful.client.focus.filter
-                    :size_hints_honor false}}
-      ]
-     )
+                    :size_hints_honor false}}])
 
 (gears.wallpaper.set "#32302f")
