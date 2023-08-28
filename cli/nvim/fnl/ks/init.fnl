@@ -22,6 +22,24 @@
            (vim.api.nvim_create_autocmd [:BufWritePre]
                                         {:callback #(format false) : buffer}))))
 
+(fn nl-sources [nl]
+  [;nl.builtins.diagnostics.alex
+   ;nl.builtins.formatting.alejandra
+   nl.builtins.formatting.black
+   nl.builtins.formatting.fnlfmt
+   nl.builtins.formatting.just
+   (nl.builtins.formatting.prettierd.with {:extra_filetypes [:tsx
+                                                             :markdown
+                                                             :typescriptreact]})
+   (nl.builtins.formatting.latexindent.with {:args [:-m :-l]})])
+
+(local nls-spec (spec :jose-elias-alvarez/null-ls.nvim
+                      {:dependencies [:plenary.nvim]
+                       :config #(let [nl (require :null-ls)]
+                                  (nl.setup {:sources (nl-sources nl)
+                                             : on_attach
+                                             :debug true}))}))
+
 (lazy.setup [(spec :ellisonleao/gruvbox.nvim
                    {:config #(vim.cmd "colorscheme gruvbox")})
              (spec :rktjmp/hotpot.nvim)
@@ -36,7 +54,12 @@
                                 (lsp.tsserver.setup {: on_attach})
                                 (lsp.gopls.setup {: on_attach})
                                 (lsp.rust_analyzer.setup {: on_attach})
+                                (lsp.svelte.setup {: on_attach})
+                                (lsp.astro.setup {: on_attach})
                                 (lsp.rnix.setup {: on_attach})
+                                (lsp.ccls.setup {: on_attach})
+                                (lsp.ocamllsp.setup {: on_attach})
+                                (lsp.typst_lsp.setup {: on_attach})
                                 ;(lsp.fennel-ls.setup {: on_attach})
                                 (lsp.hls.setup {: on_attach})))})
              (spec :nvim-lua/lsp-status.nvim)
@@ -110,19 +133,7 @@
                    {:config #(let [trouble (require :trouble)]
                                (trouble.setup {}))})
              (spec :nvim-lua/plenary.nvim)
-             (spec :jose-elias-alvarez/null-ls.nvim
-                   {:dependencies [:plenary.nvim]
-                    :config #(let [nl (require :null-ls)]
-                               (nl.setup {:sources [nl.builtins.diagnostics.alex
-                                                    ;nl.builtins.formatting.alejandra
-                                                    nl.builtins.formatting.black
-                                                    nl.builtins.formatting.fnlfmt
-                                                    nl.builtins.formatting.just
-                                                    nl.builtins.formatting.prettierd
-                                                    (nl.builtins.formatting.latexindent.with {:args [:-m
-                                                                                                     :-l]})]
-                                          : on_attach}))})]
-            {:performance {}})
+             nls-spec] {:performance {}})
 
 (set vim.o.number true)
 (set vim.o.termguicolors true)
