@@ -6,12 +6,9 @@
 (local ks (require :ks/lib))
 
 (local tasklist-buttons
-       (gears.table.join (awful.button [] 1
-                                       #(if (= $ _G.client.focus)
-                                            (tset $ :minimized true)
-                                            ($:emit_signal "request::activate"
-                                                           :tasklist
-                                                           {:raise true})))))
+  (gears.table.join
+    (awful.button [] 1 #(if (= $ _G.client.focus) (tset $ :minimized true) ($:emit_signal :request::activate :tasklist {:raise true})))
+    ))
 
 (fn attach [screen]
   (local bar (awful.wibar {:position :top : screen}))

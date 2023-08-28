@@ -4,7 +4,7 @@ Name="Group 1"
 # Layout
 Default Layout=us-workman
 # Default Input Method
-DefaultIM=rime
+DefaultIM=pinyin
 
 [Groups/0/Items/0]
 # Name

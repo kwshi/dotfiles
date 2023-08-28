@@ -1,0 +1,37 @@
+// vi: ft=scss
+
+window#waybar {
+  font-family: "JuliaMono";
+  background-color: #1d2021;
+  color: #ebdbb2;
+}
+
+#tags button {
+  padding: 0.25rem 0.5rem;
+  color: inherit;
+  border-radius: 0;
+
+  // https://github.com/Alexays/Waybar/issues/60#issuecomment-1604253114
+  border: none;
+  transition: none;
+
+  &:hover {
+    box-shadow: none;
+    text-shadow: none;
+    background: none;
+  }
+
+  &.occupied {
+    background-color: #32302f;
+  }
+
+  &.focused {
+    background-color: #8ec07c;
+    color: #1d2021;
+  }
+
+  &.urgent {
+    background-color: #cc241d;
+    color: #fff;
+  }
+}

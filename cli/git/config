@@ -30,12 +30,12 @@
   insteadOf = github.com:
   insteadOf = git+ssh://git@github.com/
 
-[url "gl:"]
-  insteadOf = https://gitlab.com/
-  insteadOf = http://gitlab.com/
-  insteadOf = git://gitlab.com/
-  insteadOf = git@gitlab.com:
-  insteadOf = gitlab.com:
+#[url "gl:"]
+#  insteadOf = https://gitlab.com/
+#  insteadOf = http://gitlab.com/
+#  insteadOf = git://gitlab.com/
+#  insteadOf = git@gitlab.com:
+#  insteadOf = gitlab.com:
 
 [url "gitea.kshi.xyz:"]
   insteadOf = https://gitea.kshi.xyz/

@@ -41,13 +41,31 @@
                                         (ks/bar/bottom screen)))
 
 (_G.client.connect_signal :focus
-                          (fn [client]
-                            (do
-                              (set client.border_color beautiful.border_focus))))
+                          #(do
+                             (tset $ :border_color beautiful.border_focus)))
+
 (_G.client.connect_signal :unfocus
-                          (fn [client]
-                            (do
-                              (set client.border_color beautiful.border_normal))))
+                          #(do
+                             (tset $ :border_color beautiful.border_normal)))
+
+(local clientbuttons
+       (gears.table.join (awful.button [] 1
+                                       (fn [c]
+                                         (c:emit_signal "request::activate"
+                                                        :mouse_click
+                                                        {:raise true})))
+                         (awful.button [:Mod4] 1
+                                       (fn [c]
+                                         (c:emit_signal "request::activate"
+                                                        :mouse_click
+                                                        {:raise true})
+                                         (awful.mouse.client.move c)))
+                         (awful.button [:Mod4] 3
+                                       (fn [c]
+                                         (c:emit_signal "request::activate"
+                                                        :mouse_click
+                                                        {:raise true})
+                                         (awful.mouse.client.resize c)))))
 
 (set awful.rules.rules
      [{:rule {}
@@ -55,6 +73,7 @@
                     :border_width beautiful.border_width
                     :border_color beautiful.border_normal
                     :focus awful.client.focus.filter
+                    :buttons clientbuttons
                     :size_hints_honor false}}])
 
 (gears.wallpaper.set "#32302f")
