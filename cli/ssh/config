@@ -12,6 +12,12 @@ Host walnut
   Hostname walnut.math.ucla.edu
   User kwshi
   IdentityFile /data/ssh/keys/walnut
+  ForwardX11 no
+
+Host walnut.math.ucla.edu
+  User kwshi
+  IdentityFile /data/ssh/keys/walnut
+  ForwardX11 no
 
 Host arky.kshi.xyz
   Hostname arky.kshi.xyz
