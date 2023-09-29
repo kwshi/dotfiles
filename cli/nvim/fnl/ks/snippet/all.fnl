@@ -1,6 +1,4 @@
-;(import-macros  :ks.lib.snippet.macro)
-(local ks/snip (require :ks.lib.snippet))
+(import-macros {: snippet} :ks.macro.snippet)
 
-(ks/snip.add :all
-             (icollect [k v (pairs (vim.fn.julia_latex_symbols#get_dict))]
-               (ks/snip.snippet k (ks/snip.shorthand.t v))))
+(icollect [k v (pairs (vim.fn.julia_latex_symbols#get_dict))]
+  (snippet {:trig k :wordTrig false} [(.t v)]))
