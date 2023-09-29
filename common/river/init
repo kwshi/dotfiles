@@ -42,6 +42,7 @@ riverctl map normal Super+Control Tab focus-view next
 
 # screenshot
 riverctl map normal Super BracketLeft spawn 'grim -g "$(slurp)" - | wl-copy'
+riverctl map normal Super+Control BracketLeft spawn 'grim - | wl-copy'
 
 # Super+Q to close the focused view
 riverctl map normal Super C close
