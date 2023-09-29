@@ -13,6 +13,10 @@ Host walnut
   User kwshi
   IdentityFile /data/ssh/keys/walnut
 
+Host arky.kshi.xyz
+  Hostname arky.kshi.xyz
+  User kiwi
+  IdentityFile /data/ssh/keys/arky
 
 Host gh
   Hostname github.com
