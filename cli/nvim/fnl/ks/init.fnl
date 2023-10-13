@@ -2,6 +2,8 @@
 
 (local {: spec} (require :ks.lib.lazy))
 
+(require :ks.cmd.rextify)
+
 (set vim.g.mapleader " ")
 (set vim.g.maplocalleader ",")
 
