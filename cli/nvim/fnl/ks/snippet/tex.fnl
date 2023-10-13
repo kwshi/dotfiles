@@ -66,7 +66,7 @@
                          ($ 0)
                          /
                          "\\end{"
-                         ($ 1)
+                         (& 1)
                          "}"])
           (snippet "env'" ["\\begin{"
                            ($ 1)
@@ -78,7 +78,7 @@
                            ($ 0)
                            /
                            "\\end{"
-                           ($ 1)
+                           (& 1)
                            "}"])]
          (icollect [trigger command (pairs {:it :textbf
                                             :bf :textbf
