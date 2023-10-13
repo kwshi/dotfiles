@@ -14,6 +14,7 @@
              (spec :nvim-lua/lsp-status.nvim)
              (require :ks.spec.lspconfig)
              (require :ks.spec.telescope)
+             (require :ks.spec.cmp)
              (spec :bakpakin/fennel.vim)
              (require :ks.spec.vimtex)
              (spec :JuliaEditorSupport/julia-vim

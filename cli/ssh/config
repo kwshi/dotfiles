@@ -19,6 +19,10 @@ Host walnut.math.ucla.edu
   IdentityFile /data/ssh/keys/walnut
   ForwardX11 no
 
+Host arky.kshi.xyz
+  Hostname arky.kshi.xyz
+  User kiwi
+  IdentityFile /data/ssh/keys/arky
 
 Host gh
   Hostname github.com

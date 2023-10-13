@@ -18,13 +18,17 @@
 ;  (vim.keymap.set :n :<leader>r vim.lsp.buf.references)
 ;  (vim.keymap.set :n :<leader>t vim.lsp.buf.type_definition))
 
+(fn format-filter [server]
+  (and (not= server.name :tsserver) (not= server.name :svelte)
+       (not= server.name :astro)))
+
 (local on-attach
        (fn [client buffer]
          (let [opts {:noremap true :silent true : buffer}
                format (fn [async]
                         (vim.lsp.buf.format {: async
                                              :bufnr buffer
-                                             :filter #(not= $.name :tsserver)}))]
+                                             :filter format-filter}))]
            (vim.keymap.set :n :<leader><leader> vim.lsp.buf.hover opts)
            (vim.keymap.set :n :<leader>f #(format true) opts)
            (vim.keymap.set :n :<leader>d vim.lsp.buf.definition opts)
