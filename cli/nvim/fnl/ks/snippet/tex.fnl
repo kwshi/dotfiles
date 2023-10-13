@@ -58,28 +58,12 @@
           (snippet :rp ["\\RequirePackage{" ($$ 1) "}"])
           (snippet "up'" ["\\usepackage[" ($$ 2) "]{" ($$ 1) "}"])
           (snippet "rp'" ["\\RequirePackage[" ($$ 2) "]{" ($$ 1) "}"])
-          (snippet :env ["\\begin{"
-                         ($ 1)
-                         "}"
-                         /
-                         "  "
-                         ($ 0)
-                         /
-                         "\\end{"
-                         (& 1)
-                         "}"])
-          (snippet "env'" ["\\begin{"
-                           ($ 1)
-                           "}["
-                           ($ 2)
-                           "]"
-                           /
-                           "  "
-                           ($ 0)
-                           /
-                           "\\end{"
-                           (& 1)
-                           "}"])]
+          (snippet :env [["\\begin{" ($ 1) "}" /]
+                         ["  " ($ 0) /]
+                         ["\\end{" (& 1) "}"]])
+          (snippet "env'" [["\\begin{" ($ 1) "}[" ($ 2) "]" /]
+                           ["  " ($ 0) /]
+                           ["\\end{" (& 1) "}"]])]
          (icollect [trigger command (pairs {:it :textbf
                                             :bf :textbf
                                             :tt :texttt
