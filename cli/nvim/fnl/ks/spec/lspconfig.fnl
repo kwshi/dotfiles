@@ -18,6 +18,9 @@
                      :settings {:nil {:formatting {:command [:alejandra]}}}})
   ;(lsp.fennel-ls.setup {: on_attach})
   (lsp.hls.setup {: on_attach})
+  (lsp.zls.setup {: on_attach})
+  (lsp.elmls.setup {: on_attach})
+  (lsp.typst_lsp.setup {: on_attach})
   (lsp.emmet_ls.setup {: capabilities
                        : on_attach
                        :init_options {:html {:options {:bem.enabled true}}}}))

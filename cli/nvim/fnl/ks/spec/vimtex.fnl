@@ -19,7 +19,9 @@
                         :pdflatex :-pdflatex
                         :lualatex :-lualatex})
                   (set vim.g.vimtex_compiler_latexmk
-                       {:build_dir :_build :options latexmk-opts})
+                       {:build_dir :_build
+                        :out_dir :_build
+                        :options latexmk-opts})
                   (set vim.g.vimtex_view_method :zathura)
                   (set vim.g.vimtex_quickfix_open_on_warning false)
                   (set vim.g.vimtex_format_enabled true)

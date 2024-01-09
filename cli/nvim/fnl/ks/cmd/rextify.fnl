@@ -1,4 +1,10 @@
 (local subscripts {:0 "₀"
+                   :i "ᵢ"
+                   :j "ⱼ"
+                   :k "ₖ"
+                   :l "ₗ"
+                   :m "ₘ"
+                   :n "ₙ"
                    :1 "₁"
                    :2 "₂"
                    :3 "₃"
@@ -35,7 +41,9 @@
                 :ge "≥"
                 :geq "≥"
                 :le "≤"
-                :leq "≤"})
+                :leq "≤"
+                :alpha "α"
+                :theta "θ"})
 
 (fn substitute [pattern substitution]
   (vim.api.nvim_command (.. ":%sm/" pattern "/" substitution :/ge)))

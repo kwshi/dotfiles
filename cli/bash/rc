@@ -3,7 +3,7 @@
 
 function prepend_path {
   case ":$PATH:" in
-    *:"$1":*) ;;
+    "$1":*) ;; # TODO delete from later search path
     *) export PATH="$1:$PATH";;
   esac
 }

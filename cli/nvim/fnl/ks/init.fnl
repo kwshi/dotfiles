@@ -24,6 +24,9 @@
 (vim.api.nvim_create_autocmd [:BufEnter]
                              {:callback #(set vim.o.formatoptions :qjmMl)})
 
+; https://github.com/neovim/nvim-lspconfig/issues/1601
+(set vim.g.c_syntax_for_h true)
+
 ;; TODO belongs with a plugin?
 (vim.keymap.set :n :<leader>e vim.diagnostic.open_float)
 

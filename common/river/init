@@ -50,6 +50,12 @@ riverctl map normal Super C close
 # Super+Shift+E to exit river
 riverctl map normal Super+Shift E exit
 
+riverctl map normal Super+Alt Grave spawn \
+  'riverctl keyboard-layout -variant "workman" -options "ctrl:nocaps,altwin:swap_alt_win" us'
+
+riverctl map normal Super Grave spawn \
+  'riverctl keyboard-layout -options "ctrl:nocaps,altwin:swap_alt_win" us'
+
 
 # Super+Shift+J and Super+Shift+K to swap the focused view with the next/previous
 # view in the layout stack

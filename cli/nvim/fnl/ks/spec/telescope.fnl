@@ -14,4 +14,4 @@
         (key :<leader>L (builtin #($.git_files {:show_untracked true})))])
 
 (spec :nvim-telescope/telescope.nvim
-      {:tag :0.1.1 :lazy false :dependencies [:plenary.nvim] : config : keys})
+      {:tag :0.1.5 :lazy false :dependencies [:plenary.nvim] : config : keys})

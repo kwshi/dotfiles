@@ -7,12 +7,24 @@ Host walnut.math.ucla.edu
   Hostname walnut.math.ucla.edu
   User kwshi
   IdentityFile /data/ssh/keys/walnut
+  SetEnv TERM=xterm-256color
 
 Host walnut
   Hostname walnut.math.ucla.edu
   User kwshi
   IdentityFile /data/ssh/keys/walnut
   ForwardX11 no
+  SetEnv TERM=xterm-256color
+
+Host git.sr.ht
+  User git
+  IdentityFile /data/ssh/keys/git@git.sr.ht
+
+Host laguna.pic.ucla.edu
+  User kwshi
+  IdentityFile /data/ssh/keys/kwshi@laguna.pic.ucla.edu
+  ForwardX11 no
+  SetEnv TERM=xterm-256color
 
 Host walnut.math.ucla.edu
   User kwshi
