@@ -1,0 +1,24 @@
+[
+  {
+    "<!-- vi: set ft=json: -->": "",
+    "layer": "bottom",
+    "modules-left": ["river/tags", "river/mode"],
+    "modules-center": ["river/window"],
+    "modules-right": ["clock"],
+    "clock": {
+      "interval": 1,
+      "format": "{:%F %T %Z}"
+    }
+  },
+  {
+    "layer": "top",
+    "position": "bottom",
+    "modules-left": ["network", "pulseaudio", "cpu", "memory", "mpris"],
+    "modules-right": ["tray"],
+    "network": {
+      "format-ethernet": "{ipaddr}"
+    },
+    "mpris": { "interval": 1 },
+    "tray": { "icon-size": 24, "spacing": 8 }
+  }
+]

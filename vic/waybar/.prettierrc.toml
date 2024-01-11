@@ -1,0 +1,4 @@
+[[overrides]]
+
+files = 'config'
+options = {parser = 'json'}

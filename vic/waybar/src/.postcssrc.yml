@@ -1,0 +1,3 @@
+parser: postcss-comment
+plugins:
+  postcss-nesting: {}
