@@ -32,8 +32,8 @@
 
 (vim.filetype.add {:extension {:mdx :markdown :hy :hy}})
 
-(lazy.setup [(require :ks.spec.gruvbox)
-             (spec :rktjmp/hotpot.nvim)
+(lazy.setup [(spec :rktjmp/hotpot.nvim)
+             (require :ks.spec.gruvbox)
              (require :ks.spec.colorizer)
              (require :ks.spec.treesitter)
              (spec :nvim-lua/lsp-status.nvim)
@@ -45,6 +45,7 @@
              (spec :JuliaEditorSupport/julia-vim
                    {:config #(set vim.g.latex_to_unicode_tab false)})
              (require :ks.spec.luasnip)
+             (require :ks.spec.conform)
              (spec :psliwka/vim-smoothie
                    {:config #(do
                                (set vim.g.smoothie_speed_linear_factor 30)
@@ -53,5 +54,6 @@
              (spec :folke/trouble.nvim
                    {:config #(let [trouble (require :trouble)]
                                (trouble.setup {}))})
-             (spec :nvim-lua/plenary.nvim)
-             (require :ks.spec.null-ls)] {:performance {}})
+             (spec :nvim-lua/plenary.nvim)] {:performance {}})
+
+;;(require :ks.spec.null-ls)

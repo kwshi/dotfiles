@@ -20,9 +20,10 @@
   (lsp.hls.setup {: on_attach})
   (lsp.zls.setup {: on_attach})
   (lsp.elmls.setup {: on_attach})
-  (lsp.typst_lsp.setup {: on_attach})
+  (lsp.typst_lsp.setup {: on_attach :settings {:exportPdf :onSave}})
   (lsp.emmet_ls.setup {: capabilities
                        : on_attach
                        :init_options {:html {:options {:bem.enabled true}}}}))
 
 (spec :neovim/nvim-lspconfig {:config #(config (require :lspconfig))})
+
