@@ -30,7 +30,7 @@
                                              :bufnr buffer
                                              :filter format-filter}))]
            (vim.keymap.set :n :<leader><leader> vim.lsp.buf.hover opts)
-           (vim.keymap.set :n :<leader>f #(format true) opts)
+           ;;(vim.keymap.set :n :<leader>f #(format true) opts) ; handled by conform
            (vim.keymap.set :n :<leader>d vim.lsp.buf.definition opts)
            (vim.keymap.set :n :<leader>t vim.lsp.buf.type_definition opts)
            (vim.keymap.set :n :<leader>r vim.lsp.buf.references opts)
