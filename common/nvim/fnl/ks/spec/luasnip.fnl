@@ -1,6 +1,6 @@
 (local {: spec} (require :ks.lib.lazy))
 
-(local snippet-types [:markdown :tex :all])
+(local snippet-types [:markdown :tex :all :typst])
 
 (fn map-si [key f]
   (vim.keymap.set :s key f)

@@ -30,7 +30,7 @@
 ;; TODO belongs with a plugin?
 (vim.keymap.set :n :<leader>e vim.diagnostic.open_float)
 
-(vim.filetype.add {:extension {:mdx :markdown :hy :hy}})
+(vim.filetype.add {:extension {:mdx :markdown :hy :hy :typ :typst}})
 
 (lazy.setup [(spec :rktjmp/hotpot.nvim)
              (require :ks.spec.gruvbox)
@@ -57,3 +57,4 @@
              (spec :nvim-lua/plenary.nvim)] {:performance {}})
 
 ;;(require :ks.spec.null-ls)
+

@@ -16,7 +16,9 @@ riverctl border-color-focused 0xd3869b
 riverctl border-color-urgent 0xcc241d
 riverctl border-width 4
 
-riverctl keyboard-layout -variant 'workman' -options 'ctrl:nocaps,altwin:swap_alt_win' 'us'
+# doing keyboard config with qmk
+#riverctl keyboard-layout -variant 'workman' -options 'ctrl:nocaps,altwin:swap_alt_win' 'us'
+riverctl keyboard-layout -variant 'workman' 'us'
 
 readarray -t input_names < <(riverctl list-inputs)
 for i in "${input_names[@]}"; do
@@ -50,11 +52,15 @@ riverctl map normal Super C close
 # Super+Shift+E to exit river
 riverctl map normal Super+Shift E exit
 
+#riverctl map normal Super+Alt Grave spawn \
+#  'riverctl keyboard-layout -variant "workman" -options "ctrl:nocaps,altwin:swap_alt_win" us'
+#riverctl map normal Super Grave spawn \
+#  'riverctl keyboard-layout -options "ctrl:nocaps,altwin:swap_alt_win" us'
 riverctl map normal Super+Alt Grave spawn \
-  'riverctl keyboard-layout -variant "workman" -options "ctrl:nocaps,altwin:swap_alt_win" us'
-
+  'riverctl keyboard-layout -variant "workman" us'
 riverctl map normal Super Grave spawn \
-  'riverctl keyboard-layout -options "ctrl:nocaps,altwin:swap_alt_win" us'
+  'riverctl keyboard-layout us'
+
 
 
 # Super+Shift+J and Super+Shift+K to swap the focused view with the next/previous

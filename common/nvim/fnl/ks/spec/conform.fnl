@@ -25,5 +25,6 @@
 
 (spec :stevearc/conform.nvim {:tag :v5.1.0
                               :config (with-conform config)
+                              :lazy false
                               : keys})
 
